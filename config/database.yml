@@ -82,5 +82,5 @@ production:
   <<: *default
   database: frenchtoastproduction
   username: frenchToast
-  host: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
   password: <%= ENV['FRENCHTOAST_DATABASE_PASSWORD'] %>
