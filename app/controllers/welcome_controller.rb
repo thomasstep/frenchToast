@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @name = "French Toast"
+    @teamName = "French Toast"
   end
 
 end
