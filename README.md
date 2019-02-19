@@ -23,3 +23,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+You need to download [PostgreSQL](https://postgresapp.com/) and Yarn using `brew install yarn` if you have Homebrew. Run `bundle install` after downloading repo.
