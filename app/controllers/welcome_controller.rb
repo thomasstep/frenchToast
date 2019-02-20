@@ -4,4 +4,7 @@ class WelcomeController < ApplicationController
     @teamName = "French Toast"
   end
 
+  def about_us
+  	@greeting = "Introducing French Toast"
+  end
 end
