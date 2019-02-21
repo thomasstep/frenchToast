@@ -18,7 +18,7 @@ const styles = {
     padding: '20px'
   },
   paper: {
-    height: '495px'
+    height: '456px'
   },
   typo: {
     paddingTop: '230px'

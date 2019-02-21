@@ -39,7 +39,7 @@ class Navbar extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <AppBar color="default" position="fixed">
+        <AppBar color="default" position="static">
           <Toolbar>
             <Grid justify="space-between" container spacing={24}>
               <Grid item>
@@ -50,7 +50,7 @@ class Navbar extends React.Component {
 
               <Grid item>
                 <Button href='/' color="inherit">Home</Button>
-                <Button href='/about' color="inherit">About Us</Button>
+                <Button href='/about_us' color="inherit">About Us</Button>
                 <Button href='/services' color="inherit">Our Services</Button>
                 <Button href='/schedule' color="inherit">Schedule</Button>
                 <Button href='/contact' color="inherit">Contact Us</Button>
