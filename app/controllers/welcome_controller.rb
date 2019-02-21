@@ -7,4 +7,7 @@ class WelcomeController < ApplicationController
   def services
   end
 
+  def about_us
+  	@greeting = "Introducing French Toast"
+  end
 end
