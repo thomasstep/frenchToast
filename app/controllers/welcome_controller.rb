@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
   end
 
   def about_us
-  	@greeting = "Introducing French Toast"
+  	@greeting = "The Z Center"
   end
 end
