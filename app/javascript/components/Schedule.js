@@ -22,6 +22,7 @@ class Schedule extends React.Component {
     desiredTime: "",
     reason: ""
   }
+
   render () {
     return (
       <div class="container-fluid">
@@ -108,14 +109,11 @@ class Schedule extends React.Component {
         </div>
         <div class="row">
           <div class="col-md-3 offset-md-4">
-            <TextField
-              id="reason"
-              label="Reason for Appointment"
-              multiline
-              value={this.state.reason}
-              variant="outlined"
-              style={{ width:"290px" }}
-            />
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
           </div>
         </div>
       </div>
