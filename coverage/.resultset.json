@@ -57,15 +57,15 @@
   },
   "RSpec": {
     "coverage": {
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/helpers/application_helper.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/helpers/welcome_helper.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/helpers/welcome_helper.rb": [
         1,
         null
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/controllers/welcome_controller.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/controllers/welcome_controller.rb": [
         1,
         null,
         1,
@@ -83,38 +83,38 @@
         null,
         null
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/controllers/application_controller.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/controllers/application_controller.rb": [
         1,
         null
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/mailers/application_mailer.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/frenchtoast/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/models/application_record.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/channels/application_cable/connection.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/channels/application_cable/channel.rb": [
+      "/home/ubuntu/workspace/frenchtoast/app/channels/application_cable/channel.rb": [
         0,
         0,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/frenchtoast/app/jobs/application_job.rb": [
         0,
         0
       ]
     },
-    "timestamp": 1551022615
+    "timestamp": 1551034692
   }
 }
