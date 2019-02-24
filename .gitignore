@@ -23,6 +23,9 @@
 /public/assets
 .byebug_history
 
+# Ignore simpleCov stuff
+/coverage/*
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /public/packs
