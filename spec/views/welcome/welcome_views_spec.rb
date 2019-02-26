@@ -7,6 +7,13 @@ RSpec.describe "welcome/index", :type => :view do
   end
 end
 
+RSpec.describe "welcome/about_us", :type => :view do
+  it "displays the about us page" do
+    render
+    expect(rendered).to include("Since 1979")
+  end
+end
+
 RSpec.describe "welcome/schedule", :type => :view do
   it "displays the schedule appointment form" do
     render
