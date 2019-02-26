@@ -9,7 +9,7 @@ RSpec.describe WelcomeController, type: :controller do
     end
   end
 
-  describe "GET #AboutUs" do
+  describe "GET about us page" do
     it "returns http success" do
       get :about_us
       expect(response).to have_http_status(:success)
