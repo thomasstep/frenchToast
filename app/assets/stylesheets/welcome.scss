@@ -15,24 +15,25 @@ body {
 .accordion {
     margin-bottom: 45px;
 }
+
+// Makes placeholder text automatically wrap
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  white-space:pre-line;  
-  position:relative;
-  top:-7px;
-  
+    white-space:pre-line;  
+    position:relative;
+    top:-7px;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-     white-space:pre-line;  
-  position:relative;
-  top:-7px;
+    white-space:pre-line;
+    position:relative;
+    top:-7px;
 }
 :-ms-input-placeholder { /* IE 10+ */
-    white-space:pre-line;  
-  position:relative;
-  top:-7px;
+    white-space:pre-line;
+    position:relative;
+    top:-7px;
 }
 :-moz-placeholder { /* Firefox 18- */
-     white-space:pre-line;  
-  position:relative;
-  top:-7px;
+    white-space:pre-line;
+    position:relative;
+    top:-7px;
 }
