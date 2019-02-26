@@ -13,3 +13,16 @@ RSpec.describe "welcome/schedule", :type => :view do
     expect(rendered).to include("We'll never share your email with anyone else.")
   end
 end
+
+RSpec.describe "welcome/services", :type => :view do
+  it "displays the services offered" do
+    render
+    expect(rendered).to include("Alignment")
+    expect(rendered).to include("A/C Services")
+    expect(rendered).to include("Brakes")
+    expect(rendered).to include("Check Engine Light")
+    expect(rendered).to include("Drivetrain and Suspension")
+    expect(rendered).to include("Exhaust System")
+    expect(rendered).to include("Inspection")
+  end
+end
