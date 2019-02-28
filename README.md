@@ -14,3 +14,5 @@ Problems with local PostGres not recognizing 5432 port solved with commands
  see here : `https://stackoverflow.com/questions/13868730/socket-file-var-pgsql-socket-s-pgsql-5432-missing-in-mountain-lion-    os-x-ser`  
 
 Refer to this to [link issues with pull requests](https://help.github.com/en/articles/closing-issues-using-keywords)
+[Capybara and Cucumber testing help](https://gist.github.com/zhengjia/428105)
+[rspec help](https://www.rubydoc.info/gems/rspec-rails/frames)
