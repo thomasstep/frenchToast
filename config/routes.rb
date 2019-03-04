@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get 'services', to: 'welcome#services'
   get '/about_us', to: 'welcome#about_us'
   get 'schedule', to: 'welcome#schedule'
+  
+  resources :cars
 end
