@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 2019_02_28_191120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end  
+  
+  create_table "appointments", force: :cascade do |t|
+    t.string "VIN"
+    t.string "owner_email"
+    t.string "date"
+    t.integer "time"
+    t.string "reason"
+    t.string "parts_needed"
+    t.string "hours_needed"
+    t.string "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end  
     
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
