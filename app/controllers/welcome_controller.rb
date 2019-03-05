@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
   end
 
   def services
+    
   end
 
   def about_us
