@@ -1,26 +1,23 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/mailers/application_mailer.rb": [
-        0,
-        0,
+      "/home/ec2-user/environment/frenchtoast/app/helpers/application_helper.rb": [
         0,
         0
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/models/application_record.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/jobs/application_job.rb": [
+      "/home/ec2-user/environment/frenchtoast/app/helpers/welcome_helper.rb": [
         0,
         0
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/controllers/application_controller.rb": [
+      "/home/ec2-user/environment/frenchtoast/app/controllers/welcome_controller.rb": [
         0,
-        0
-      ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/controllers/welcome_controller.rb": [
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
         0,
         null,
         0,
@@ -29,31 +26,46 @@
         null,
         0,
         0,
+        0
+      ],
+      "/home/ec2-user/environment/frenchtoast/app/controllers/application_controller.rb": [
         0,
         0
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/helpers/welcome_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/helpers/application_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/channels/application_cable/connection.rb": [
+      "/home/ec2-user/environment/frenchtoast/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/tmoneyfish/Documents/Uni/CSCE431/frenchtoast/app/channels/application_cable/channel.rb": [
+      "/home/ec2-user/environment/frenchtoast/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/ec2-user/environment/frenchtoast/app/models/car.rb": [
+        0,
+        null,
+        0
+      ],
+      "/home/ec2-user/environment/frenchtoast/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/ec2-user/environment/frenchtoast/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/ec2-user/environment/frenchtoast/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1550767540
+    "timestamp": 1551811019
   },
   "RSpec": {
     "coverage": {

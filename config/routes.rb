@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'schedule', to: 'welcome#schedule'
   
   resources :cars
+  resources :appointments
 end
