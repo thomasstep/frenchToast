@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/schedule', to: 'welcome#schedule'
 
   devise_scope :user do
-    get '/create_account', to: 'devise/registrations#new'
+    get '/sign_up', to: 'devise/registrations#new'
     get '/login', to: 'devise/sessions#new'
     get '/logout', to: 'devise/sessions#destroy'
   end
