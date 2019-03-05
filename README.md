@@ -18,3 +18,6 @@ Refer to this to [link issues with pull requests](https://help.github.com/en/art
 [Capybara and Cucumber testing help](https://gist.github.com/zhengjia/428105)
 
 [rspec help](https://www.rubydoc.info/gems/rspec-rails/frames)
+
+Run this to make recent devise login PR work  
+`bin/rails db:migrate RAILS_ENV=development`  
