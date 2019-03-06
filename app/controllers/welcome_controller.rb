@@ -20,6 +20,10 @@ class WelcomeController < ApplicationController
     print @lastName
   end
   
+  def my_profile
+    
+  end
+  
   def new_car
     
   end
