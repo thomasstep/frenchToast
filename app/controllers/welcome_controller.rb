@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
   end
 
   def services
-    
+
   end
 
   def about_us
@@ -30,13 +30,13 @@ class WelcomeController < ApplicationController
       @desiredTime = params[:desiredTime]
       @reason = params[:reason]
 
-      @app = Appointment.new(owner_email: @email, VIN: @vehicleVin, date: @desiredDate,time: @desiredTime, reason: @reason )
+      @app = Appointment.new(owner_email: @email, VIN: @vehicleVin, date: @desiredDate, time: @desiredTime, reason: @reason )
       if @app.valid?
         @appointment_scheduled = true
         @app.save
-        
+
       else
-        flash[:notice] = "unable to create appointment"
+        flash[:notice] = "Unable to create appointment"
         @appointment_canceled = true
 
       end
@@ -44,6 +44,6 @@ class WelcomeController < ApplicationController
   end
 
   def my_profile
-    
+    @appointments = Appointment.where(owner_email: current_user.email)
   end
 end
