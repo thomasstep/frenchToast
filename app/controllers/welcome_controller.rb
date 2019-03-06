@@ -13,5 +13,10 @@ class WelcomeController < ApplicationController
   end
 
   def schedule
+    @schedule = Appointment.all
+    @firstName = params[:firstName]
+    @lastName = params[:lastName]
+    print @firstName
+    print @lastName
   end
 end
