@@ -19,4 +19,8 @@ class WelcomeController < ApplicationController
     print @firstName
     print @lastName
   end
+  
+  def new_car
+    
+  end
 end
