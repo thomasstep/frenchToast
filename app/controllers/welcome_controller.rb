@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
   end
 
   def services
+    
   end
 
   def about_us
@@ -12,5 +13,10 @@ class WelcomeController < ApplicationController
   end
 
   def schedule
+    @schedule = Appointment.all
+    @firstName = params[:firstName]
+    @lastName = params[:lastName]
+    print @firstName
+    print @lastName
   end
 end
