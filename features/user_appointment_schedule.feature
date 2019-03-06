@@ -7,11 +7,7 @@ Feature: Login to an existing account
   | test@gmail.com  | test1234     | 5555551234 | John       | Doe       |
 
   Scenario: Login to account
-  Given I am on the login page
-  When I fill in "user_email" with "test@gmail.com"
-  When I fill in "user_password" with "test1234"
-  When I press "Log in"
-  Then I should be on the home page
+  Given "test@gmail.com" is logged in using password "test1234"
   Given I am on the schedule page
   Then the "firstName" field should contain "John"
   Then the "lastName" field should contain "Doe"
