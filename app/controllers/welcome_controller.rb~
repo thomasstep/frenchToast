@@ -45,11 +45,10 @@ class WelcomeController < ApplicationController
 
   def my_profile
     @appointments = Appointment.where(owner_email: current_user.email)
-    @cars = Car.where(email: current_user.email)
   end
   
   def my_garage
-    
+    @cars = Car.where(email: current_user.email)
   end
   
   def new_car
