@@ -17,6 +17,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-3 offset-md-2">
       <div class="form-group">
@@ -87,10 +88,14 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-4 offset-md-4 text-center">
-      <button type="submit" class="btn btn-primary">Submit</button>
+       <%= submit_tag "Submit", class:"btn btn-primary"%>
+       <%= javascript_tag "alert('unable to schedule appointment')" unless @appointment_canceled == false%>
+       <%= javascript_tag "alert('appointment scheduled')" unless @appointment_scheduled == false%>
     </div>
+
+
   </div>
-</div>
 </form>

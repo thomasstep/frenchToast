@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-md-2 offset-md-5">
+      <div class="card text-center">
+        <h5 class="card-header">Account Settings</h5>
+        <div class="card-body">
+          <p class="card-subtitle mb-2 text-muted">Go here to change your email, password, or delete your account</p>
+          <a href="/users/edit" class="btn btn-primary stretched-link">Go to Account Settings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div class="row text-center">
+    <div class="col-md-4 offset-md-2">
+      <div class="card">
+        <h5 class="card-header">Saved Cars</h5>
+        <div class="card-body">
+          <p class="card-text">View all your saved cars here.</p>
+          <a href="#" class="btn btn-success">Add New Car</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header">Service Appointments</h5>
+        <div class="card-body">
+          <%@appointments.each do | appt |%>
+            <%="Appointment for #{appt.date}"%>
+            </br>
+          <%end%>
+          <a href="/schedule" class="btn btn-success">Schedule Service Appointment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
