@@ -1,0 +1,5 @@
+thomas:
+  id: 1
+  email: tstep916@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'test') %>
+  phone: 5555551234
