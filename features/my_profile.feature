@@ -23,3 +23,4 @@ Feature: Check that you can see appointments that you have made
   And I click on "Go to Account Settings"
   Then I should see "Edit User"
   And I should see "Cancel my account"
+  
