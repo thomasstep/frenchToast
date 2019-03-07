@@ -19,7 +19,12 @@
         <div class="card-body">
           <p class="card-text">View all your saved cars here.</p>
             <%@cars.each do | car |%>
-              <%="#{car.make} #{car.model} #{car.VIN}"%>
+              <%="Make: #{car.make}"%>
+              </br>
+              <%="Model: #{car.model}"%>
+              </br>
+              <%="VIN: #{car.VIN}"%>
+              </br>
               </br>
             <%end%>
           <a href="/new_car" class="btn btn-success">Add New Car</a>
