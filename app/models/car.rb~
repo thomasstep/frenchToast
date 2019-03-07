@@ -1,4 +1,0 @@
-class Car < ApplicationRecord
-   validates :VIN, presence:true
-   validates :owner_email, presence:true 
-end
