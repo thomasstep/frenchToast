@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/services', to: 'welcome#services'
   get '/about_us', to: 'welcome#about_us'
   get '/schedule', to: 'welcome#schedule'
+  get '/new_car', to: 'welcome#new_car'
   get '/my_profile', to: 'welcome#my_profile'
 
   devise_scope :user do

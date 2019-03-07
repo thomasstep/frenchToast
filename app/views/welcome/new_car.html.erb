@@ -1,0 +1,41 @@
+<form action="new_car" method="refresh">  
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-md-3 offset-md-2">
+      <div class="form-group">
+        <label for="vehicleYear">Vehicle Year</label>
+        <input type="text" class="form-control" id="vehicleYear" aria-describedby="vehicleYear" placeholder="" name="vehicleYear">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="vehicleMake">Vehicle Make</label>
+        <input type="text" class="form-control" id="vehicleMake" aria-describedby="vehicleMake" placeholder="" name="vehicleMake">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="vehicleModel">Vehicle Model</label>
+        <input type="text" class="form-control" id="vehicleModel" aria-describedby="vehicleModel" placeholder="" name="vehicleModel">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <label for="vehicleVin">Vehicle VIN</label>
+        <input type="text" class="form-control" id="vehicleVin" aria-describedby="vehicleVin" placeholder="" name="vehicleVin">
+        <small id="vehicleVin" class="form-text text-muted">Vehicle identification number found on insurance card or driver side dash board.</small>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <%= javascript_tag "alert('Unable to add car')" unless @addcar_cancelled == false%>
+      <%= javascript_tag "alert('Car added to garage'); window.location = '/my_profile';" unless @addedcar == false%>
+    </div>
+  </div>
+</div>
+</form>
