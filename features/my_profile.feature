@@ -20,7 +20,7 @@ Feature: Check that you can see appointments that you have made
   Scenario: Go to account settings
   Given "test@gmail.com" is logged in using password "test1234"
   And I am on the my profile page
-  And I click on "Go to Account Settings"
+  And I follow "Go to Account Settings"
   Then I should see "Edit User"
   And I should see "Cancel my account"
   
