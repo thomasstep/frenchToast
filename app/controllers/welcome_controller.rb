@@ -19,10 +19,16 @@ class WelcomeController < ApplicationController
     @user_email = ""
     @user_phone = ""
     if user_signed_in?
-      @user_first_name = current_user.first_name
-      @user_last_name = current_user.last_name
       @user_email = current_user.email
-      @user_phone = current_user.phone
+      if !current_user.first_name.nil?
+        @user_first_name = current_user.first_name
+      end
+      if !current_user.last_name.nil?
+        @user_last_name = current_user.last_name
+      end
+      if !current_user.phone.nil?
+        @user_phone = current_user.phone
+      end
     end
     @appointment_canceled = false
     @appointment_scheduled = false
