@@ -7,7 +7,7 @@
 
           <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="" name="firstName"
             <%if !@user_first_name.empty?%>
-              value=@user_first_name
+              value=<%=@user_first_name%>
             <%end%>
           >
 
@@ -19,7 +19,7 @@
 
         <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="" name="lastName"
           <%if !@user_last_name.empty?%>
-            value=@user_last_name
+            value=<%=@user_last_name%>
           <%end%>
         >
 
@@ -33,7 +33,7 @@
         <label for="email">Email address</label>
 
         <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="" value=<%=@user_email%> name="email">
-        
+
         <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
     </div>
@@ -43,7 +43,7 @@
 
         <input type="tel" class="form-control" id="phone" aria-describedby="phone" placeholder="" name="phone"
           <%if !@user_phone.empty?%>
-            value=@user_phone
+            value=<%=@user_phone%>
           <%end%>
         >
 
