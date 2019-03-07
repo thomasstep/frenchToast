@@ -45,5 +45,6 @@ class WelcomeController < ApplicationController
 
   def my_profile
     @appointments = Appointment.where(owner_email: current_user.email)
+    puts @appointment.class
   end
 end

@@ -12,6 +12,11 @@ Feature: Check that you can see appointments that you have made
   Given I am on the my profile page
   Then I should see "Appointment for January 1, 2020"
   
+  Scenario: No scheduled appointments
+  Given "test@gmail.com" is logged in using password "test1234"
+  And I am on the my profile page
+  Then I should see "No scheduled appointments currently"
+  
   Scenario: Go to account settings
   Given "test@gmail.com" is logged in using password "test1234"
   When I am on the my profile page

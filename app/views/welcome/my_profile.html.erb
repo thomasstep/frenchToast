@@ -26,14 +26,18 @@
       <div class="card">
         <h5 class="card-header">Service Appointments</h5>
         <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <%@appointments.each do | appt |%>
-              <li class="list-group-item">
-                <%= "Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %>
-              </li>
-            <%end%>
-          </ul>
-          <br>
+          <% if @appointments.empty? %>
+            <p class="card-text">No scheduled appointments currently</p>
+          <% else %>
+            <ul class="list-group list-group-flush">
+              <% @appointments.each do | appt | %>
+                <li class="list-group-item">
+                  <%= "Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %>
+                </li>
+              <%end%>
+            </ul>
+            <br>
+          <% end %>
           <a href="/schedule" class="btn btn-success">Schedule Service Appointment</a>
         </div>
       </div>
