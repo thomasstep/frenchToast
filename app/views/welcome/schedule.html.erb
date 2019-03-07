@@ -1,19 +1,27 @@
-<form action="schedule">
-
+<form action="schedule" method="refresh">
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 offset-md-2">
       <div class="form-group">
         <label for="firstName">First Name</label>
 
-          <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="" name ="firstName">
+          <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="" name="firstName"
+            <%if !@user_first_name.empty?%>
+              value=@user_first_name
+            <%end%>
+          >
 
       </div>
     </div>
     <div class="col-md-3 offset-md-2">
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="" name="lastName">
+
+        <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="" name="lastName"
+          <%if !@user_last_name.empty?%>
+            value=@user_last_name
+          <%end%>
+        >
 
       </div>
     </div>
@@ -23,14 +31,22 @@
     <div class="col-md-3 offset-md-2">
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="" name="email">
+
+        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="" value=<%=@user_email%> name="email">
+        
         <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
     </div>
     <div class="col-md-3 offset-md-2">
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="tel" class="form-control" id="phone" aria-describedby="phone" placeholder="" name="phone">
+
+        <input type="tel" class="form-control" id="phone" aria-describedby="phone" placeholder="" name="phone"
+          <%if !@user_phone.empty?%>
+            value=@user_phone
+          <%end%>
+        >
+
       </div>
     </div>
   </div>
@@ -71,7 +87,11 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="desiredTime">Desired Time</label>
-        <input type="text" class="form-control" id="desiredTime" aria-describedby="desiredTime" placeholder="" name="desiredTime">
+        <select class="form-control" id="desiredTime" name="desiredTime">
+          <option>Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+        </select>
       </div>
     </div>
   </div>
@@ -95,6 +115,4 @@
 
 
   </div>
-</div>
-
 </form>
