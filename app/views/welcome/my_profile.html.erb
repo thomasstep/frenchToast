@@ -26,7 +26,10 @@
       <div class="card">
         <h5 class="card-header">Service Appointments</h5>
         <div class="card-body">
-          <p class="card-text">View your upcoming service appointments here.</p>
+          <%@appointments.each do | appt |%>
+            <%="Appointment for #{appt.date}"%>
+            </br>
+          <%end%>
           <a href="/schedule" class="btn btn-success">Schedule Service Appointment</a>
         </div>
       </div>
