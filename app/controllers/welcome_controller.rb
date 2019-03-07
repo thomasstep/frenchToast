@@ -19,7 +19,9 @@ class WelcomeController < ApplicationController
     @user_email = ""
     @user_phone = ""
     if user_signed_in?
-      @user_email = current_user.email
+      if !current_user.email.nil?
+        @user_email = current_user.email
+      end
       if !current_user.first_name.nil?
         @user_first_name = current_user.first_name
       end

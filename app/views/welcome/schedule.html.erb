@@ -32,7 +32,11 @@
       <div class="form-group">
         <label for="email">Email address</label>
 
-        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="" value=<%=@user_email%> name="email">
+        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="" name="email"
+          <%if !@user_email.empty?%>
+            value=<%=@user_email%>
+          <%end%>
+        >
 
         <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
