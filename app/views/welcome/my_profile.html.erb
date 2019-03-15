@@ -18,7 +18,16 @@
         <h5 class="card-header">Saved Cars</h5>
         <div class="card-body">
           <p class="card-text">View all your saved cars here.</p>
-          <a href="#" class="btn btn-success">Add New Car</a>
+            <%@cars.each do | car |%>
+              <%="Make: #{car.make}"%>
+              </br>
+              <%="Model: #{car.model}"%>
+              </br>
+              <%="VIN: #{car.VIN}"%>
+              </br>
+              </br>
+            <%end%>
+          <a href="/new_car" class="btn btn-success">Add New Car</a>
         </div>
       </div>
     </div>
