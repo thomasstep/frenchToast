@@ -17,16 +17,21 @@
       <div class="card">
         <h5 class="card-header">Saved Cars</h5>
         <div class="card-body">
-          <p class="card-text">View all your saved cars here.</p>
+          <% if @cars.empty? %>
+            <p class="card-text">No cars saved yet</p>
+            <p class="card-text">Click the button below to add a car</p>
+          <% else %>
+            <ul class="list-group list-group-flush">
             <%@cars.each do | car |%>
-              <%="Make: #{car.make}"%>
-              </br>
-              <%="Model: #{car.model}"%>
-              </br>
-              <%="VIN: #{car.VIN}"%>
-              </br>
-              </br>
-            <%end%>
+              <li class="list-group-item">
+                <%= "#{car.year} #{car.make} #{car.model}" %>
+                </br>
+                <%="VIN: #{car.VIN}"%>
+              </li>
+            <% end %>
+            </ul>
+            <br>
+          <% end %>
           <a href="/new_car" class="btn btn-success">Add New Car</a>
         </div>
       </div>
