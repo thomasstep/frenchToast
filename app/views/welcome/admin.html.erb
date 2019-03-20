@@ -1,0 +1,13 @@
+<div class="row text-center">
+    <div class="col-md-6">
+      <div class="card">
+        <h5 class="card-header">All Scheduled Appointments</h5>
+        <div class="card-body">
+          <%@appointments.each do | appt |%>
+            <%="Appointment for #{appt.owner_email} on #{appt.date} in the #{appt.time}"%>
+            </br>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
