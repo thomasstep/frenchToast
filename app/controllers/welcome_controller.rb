@@ -95,4 +95,12 @@ class WelcomeController < ApplicationController
       end
     end
   end
+  
+  def delete_car
+    flash[:notice] = "Car deleted"
+    @car = Car.where(VIN: params[:id])
+    @car.destroy_all
+    flash[:notice] = "Car deleted"
+    redirect_to "/my_profile"
+  end
 end

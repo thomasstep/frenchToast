@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/schedule', to: 'welcome#schedule'
   get '/new_car', to: 'welcome#new_car'
   get '/my_profile', to: 'welcome#my_profile'
+  post '/delete_car/:id', to: 'welcome#delete_car'
 
   devise_scope :user do
     get '/sign_up', to: 'devise/registrations#new'
