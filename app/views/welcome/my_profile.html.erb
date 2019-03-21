@@ -28,7 +28,7 @@
                 <br>
                 <%="VIN: #{car.VIN}"%>
                 <br>
-                <%= button_to 'Delete Car', '/delete_car/' + car.VIN, method: :post %>
+                <%= button_to 'Delete Car', '/delete_car/' + car.VIN, method: :post, class: 'btn btn-sm btn-outline-danger' %>
               </li>
             <% end %>
             </ul>
