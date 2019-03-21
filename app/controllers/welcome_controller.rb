@@ -99,4 +99,5 @@ class WelcomeController < ApplicationController
   def admin
     @appointments = Appointment.all
   end
+  
 end
