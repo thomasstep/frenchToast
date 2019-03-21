@@ -24,11 +24,16 @@
             <ul class="list-group list-group-flush">
             <%@cars.each do | car |%>
               <li class="list-group-item">
-                <%= "#{car.year} #{car.make} #{car.model}" %>
-                <br>
-                <%="VIN: #{car.VIN}"%>
-                <br>
-                <%= button_to 'Delete Car', '/delete_car/' + car.VIN, method: :post, class: 'btn btn-sm btn-outline-danger' %>
+                <div class="row align-items-center text-left">
+                  <div class="col-md-8">
+                    <%= "#{car.year} #{car.make} #{car.model}" %>
+                    <br>
+                    <%="VIN: #{car.VIN}"%>
+                  </div>
+                  <div class="cold-md-4">
+                    <%= button_to 'Delete Car', '/delete_car/' + car.VIN, method: :post, class: 'btn btn-sm btn-outline-danger' %>
+                  </div>
+                </div>
               </li>
             <% end %>
             </ul>
