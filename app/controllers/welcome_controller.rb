@@ -74,7 +74,6 @@ class WelcomeController < ApplicationController
 
     #wanna see the most disgusting code ever?
     if params.has_key?(:vehicleVin)
-      @email = params[:email]
       @vehicleYear = params[:vehicleYear]
       @vehicleMake = params[:vehicleMake]
       @vehicleModel = params[:vehicleModel]

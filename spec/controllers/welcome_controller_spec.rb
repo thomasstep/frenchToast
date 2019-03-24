@@ -62,13 +62,34 @@ RSpec.describe WelcomeController, type: :controller do
           :phone => "5555551230",
           :first_name => "John",
           :last_name => "Test"
-        ).save!
+        )
+      user.save!
       sign_in user
       controller.schedule
       expect(assigns(:user_email)).to eq("test@gmail.com")
       expect(assigns(:user_first_name)).to eq("John")
       expect(assigns(:user_last_name)).to eq("Test")
       expect(assigns(:user_phone)).to eq("5555551230")
+    end
+  end
+
+  describe "Check that the new_car page only makes a new car if the necessary information is provided" do
+    it "should not allow a new car addition while missing the VIN" do
+      user = User.new(
+          :email => "test@gmail.com",
+          :password => "test1234",
+          :phone => "5555551230",
+          :first_name => "John",
+          :last_name => "Test"
+        )
+      user.save!
+      sign_in user
+      controller.params[:vehicleYear] = "2001"
+      controller.params[:vehicleMake] = "Ford"
+      controller.params[:vehicleModel] = "Model T"
+      controller.params[:vehicleVin] = ""
+      controller.new_car
+      expect(assigns(:addcar_cancelled)).to eq(true)
     end
   end
 end
