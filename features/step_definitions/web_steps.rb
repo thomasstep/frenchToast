@@ -140,7 +140,9 @@ end
 
 Then /^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/ do |field, parent, value|
   with_scope(parent) do
+    puts(field)
     field = find_field(field)
+    
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
     if field_value.respond_to? :should
       field_value.should =~ /#{value}/
