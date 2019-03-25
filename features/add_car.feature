@@ -9,11 +9,13 @@ Feature: Add a car to your profile
   Scenario: Add a car
   Given "test@gmail.com" is logged in using password "test1234"
   Given I am on the my profile page
-  When I press "Add New Car"
+  When I follow "Add New Car"
   When I fill in "vehicleYear" with "2019"
   When I fill in "vehicleMake" with "Nissan"
   When I fill in "vehicleModel" with "370Z"
   When I fill in "vehicleVin" with "1234567890"
   When I press "Submit"
   Given I am on the my profile page
-  Then I should see "2019 Nissan 370Z"
+  Then I should see "Make: Nissan"
+  Then I should see "Model: 370Z"
+  Then I should see "VIN: 1234567890"
