@@ -52,11 +52,8 @@ class WelcomeController < ApplicationController
       if @app.valid?
         @appointment_scheduled = true
         @app.save
-
       else
-        flash[:notice] = "Unable to create appointment"
         @appointment_canceled = true
-
       end
     end
   end
@@ -65,11 +62,11 @@ class WelcomeController < ApplicationController
     @appointments = Appointment.where(owner_email: current_user.email)
     @cars = Car.where(email: current_user.email)
   end
-  
+
   def my_garage
-    
+
   end
-  
+
   def new_car
     @addcar_cancelled = false
     @addedcar = false
@@ -77,7 +74,6 @@ class WelcomeController < ApplicationController
 
     #wanna see the most disgusting code ever?
     if params.has_key?(:vehicleVin)
-      @email = params[:email]
       @vehicleYear = params[:vehicleYear]
       @vehicleMake = params[:vehicleMake]
       @vehicleModel = params[:vehicleModel]
