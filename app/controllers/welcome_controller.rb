@@ -79,7 +79,7 @@ class WelcomeController < ApplicationController
       @vehicleModel = params[:vehicleModel]
       @vehicleVin = params[:vehicleVin]
 
-      @new = Car.new(email: current_user.email, VIN: @vehicleVin, make: @vehicleMake, model: @vehicleModel)
+      @new = Car.new(email: current_user.email, year: @vehicleYear, VIN: @vehicleVin, make: @vehicleMake, model: @vehicleModel)
       if @new.valid?
         @addedcar = true
         @new.save
@@ -92,6 +92,12 @@ class WelcomeController < ApplicationController
     end
   end
   
+  def delete_car
+    @car = Car.where(VIN: params[:id])
+    @car.destroy_all
+    redirect_to "/my_profile"
+  end
+
   def admin
     @appointments = Appointment.all
   end
