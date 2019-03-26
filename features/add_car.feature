@@ -16,6 +16,5 @@ Feature: Add a car to your profile
   When I fill in "vehicleVin" with "1234567890"
   When I press "Submit"
   Given I am on the my profile page
-  Then I should see "Make: Nissan"
-  Then I should see "Model: 370Z"
+  Then I should see "2019 Nissan 370Z"
   Then I should see "VIN: 1234567890"
