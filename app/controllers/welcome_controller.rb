@@ -91,4 +91,9 @@ class WelcomeController < ApplicationController
       end
     end
   end
+  
+  def admin
+    @appointments = Appointment.all
+  end
+  
 end
