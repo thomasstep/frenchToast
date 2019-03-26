@@ -97,4 +97,9 @@ class WelcomeController < ApplicationController
     @car.destroy_all
     redirect_to "/my_profile"
   end
+
+  def admin
+    @appointments = Appointment.all
+  end
+  
 end

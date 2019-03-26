@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/new_car', to: 'welcome#new_car'
   get '/my_profile', to: 'welcome#my_profile'
   post '/delete_car/:id', to: 'welcome#delete_car'
+  get '/admin', to: 'welcome#admin'
 
   devise_scope :user do
     get '/sign_up', to: 'devise/registrations#new'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
     get '/logout', to: 'devise/sessions#destroy'
     get '/account_settings', to: 'users/registrations#edit'
   end
-
+  
   resources :cars
   resources :appointments
 end
