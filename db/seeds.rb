@@ -10,7 +10,8 @@ User.new(
     :password => "test1234",
     :phone => "5555551230",
     :first_name => "John",
-    :last_name => "Test"
+    :last_name => "Test",
+    :admin => true
   ).save!
 
 User.new(

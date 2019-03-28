@@ -1,0 +1,25 @@
+<h2 align="center">Modify Existing Appointment</h2>
+
+<div class="container-fluid">
+  <%= form_for @appointment do |f| %>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= f.label :date %> </br>
+          <%= f.date_field :date %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :time %>
+          <%= f.select :time, ["Morning", "Afternoon", "Evening"], {}, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 offset-md-4 text-center">
+         <%= f.submit "Update", class:"btn btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>

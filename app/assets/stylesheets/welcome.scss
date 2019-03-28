@@ -15,6 +15,13 @@ body {
 .accordion {
     margin-bottom: 45px;
 }
+.vertical-center {
+  min-height: 100%;  
+  min-height: 100vh; 
+
+  display: flex;
+  align-items: center;
+}
 
 // Makes placeholder text automatically wrap
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

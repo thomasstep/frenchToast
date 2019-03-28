@@ -3,9 +3,9 @@ Made by AJ Najjar, Bailey Guthrie, Chris Sherman, Patrick Habashy (Product Owner
 
 Hosted on [Heroku](https://thefrenchiesttoast.herokuapp.com/)
 
-This app uses Ruby 2.4.0. The front end is made using Bootstrap version 4. The DB is PostgreSQL. The master branch is added to as features are created and approved by 2 other team members.
+This app uses Ruby 2.4.0. The front end is made using Bootstrap version 4. Styling guidelines are default Bootstrap guidelines. The DB is PostgreSQL. The master branch is added to as features are created and approved by 2 other team members.
 
-You need to download [PostgreSQL](https://postgresapp.com/) and Yarn using `brew install yarn` if you have Homebrew. Run `bundle install` after downloading repo.
+You need to download [PostgreSQL](https://postgresapp.com/). Run `bundle install` after downloading repo.
   
 Problems with local PostGres not recognizing 5432 port solved with commands  
 `$ mkdir /var/pgsql_socket/`  
