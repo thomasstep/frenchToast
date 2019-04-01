@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/sign_up', to: 'devise/registrations#new'
-    get '/login', to: 'devise/sessions#new'
+    get '/sign_in', to: 'devise/sessions#new'
     get '/logout', to: 'devise/sessions#destroy'
     get '/account_settings', to: 'users/registrations#edit'
   end
-  
+
   resources :cars
   resources :appointments
 end
