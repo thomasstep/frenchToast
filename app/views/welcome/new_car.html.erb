@@ -6,7 +6,7 @@
       <div class="form-group">
         <label for="vehicleYear">Vehicle Year</label>
         <input type="text" class="form-control" id="vehicleYear" aria-describedby="vehicleYear" placeholder="" name="vehicleYear"
-pattern="(20[0-1][1-9])|(19[0-9][0-9])" title=" 1900-2019">
+pattern="(20[0-1][0-9])|(19[0-9][0-9])" title=" 1900-2019">
       </div>
     </div>
     <div class="col-md-2">
@@ -27,7 +27,7 @@ pattern="[a-zA-Z]{3,15}$" title="Model must be from 3 to 15 characters">
     <div class="col-md-4 offset-md-4">
       <div class="form-group">
         <label for="vehicleVin">Vehicle VIN</label>
-        <input type="text" class="form-control" id="vehicleVin" aria-describedby="vehicleVin" placeholder="" name="vehicleVin" pattern="\w{10}" title="17 character alphanumeric">
+        <input type="text" class="form-control" id="vehicleVin" aria-describedby="vehicleVin" placeholder="" name="vehicleVin" pattern="\w{17}" title="17 character alphanumeric">
         <small id="vehicleVin" class="form-text text-muted">Vehicle identification number found on insurance card or driver side dash board.</small>
       </div>
     </div>
