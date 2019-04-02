@@ -15,4 +15,5 @@ Given /^"(.*)" is logged in using password "(.*)"$/ do | email, password |
   fill_in "user_email", with: email
   fill_in "user_password", with: password
   click_button "Log in"
+  @current_user = User.find_by_email(email)
 end
