@@ -59,7 +59,9 @@ class WelcomeController < ApplicationController
   end
 
   def my_profile
-    @appointments = Appointment.where(owner_email: current_user.email)
+    @appointments = Appointment.
+      where(owner_email: current_user.email).
+      where("date >= ?", Date.today.to_formatted_s )
     @cars = Car.where(email: current_user.email)
   end
 
@@ -91,7 +93,7 @@ class WelcomeController < ApplicationController
       end
     end
   end
-  
+
   def delete_car
     @car = Car.where(VIN: params[:id])
     @car.destroy_all
@@ -101,5 +103,5 @@ class WelcomeController < ApplicationController
   def admin
     @appointments = Appointment.all
   end
-  
+
 end
