@@ -19,13 +19,3 @@ Feature: Control an admin account with appointment modification privileges
   Then I should see "Appointment for test1@gmail.com on 2010-03-11 in the Morning"
   And I should see "Appointment for test1@gmail.com on 2030-04-25 in the Evening Edit"
   And I should see "Appointment for test2@gmail.com on 2040-05-16 in the Afternoon Edit"
-
-  Scenario: Modify current appointment date and times
-  Given "test@gmail.com" is logged in using password "test1234"
-  Given I am on the admin page
-  When I edit appointment 1
-  When I fill in "appointment[date]" with "1990-04-26"
-  When I fill in "appointment_time" with "Morning"
-  When I press "update"
-  Then I should see "Current Appointments"
-  And I should see "Appointment for test1@gmail.com on 1990-03-26 in the Morning"
