@@ -21,8 +21,8 @@ Feature: Check that you can see appointments that you have made
   Given "test@gmail.com" is logged in using password "test1234"
   And I am on the my profile page
   And I follow "Go to Account Settings"
-  Then I should see "Edit User"
-  And I should see "Cancel my account"
+  Then I should see "Edit Account Information"
+  And I should see "Unhappy?"
 
   Scenario: Change account information
   Given "test@gmail.com" is logged in using password "test1234"
