@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/delete_car/:id', to: 'welcome#delete_car'
   get '/admin', to: 'welcome#admin'
   get '/not_admin', to: 'welcome#not_admin'
+  get '/no_profile', to: 'welcome#no_profile'
   devise_scope :user do
     get '/sign_up', to: 'devise/registrations#new'
     get '/sign_in', to: 'devise/sessions#new'
