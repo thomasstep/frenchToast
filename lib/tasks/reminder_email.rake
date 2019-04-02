@@ -3,7 +3,9 @@ namespace :reminder_email do
      task :send => :environment do
        appts = Appointment.where(date: Date.today)
        appts.each do |appt|
-         UserMailer.reminder_email(appt.owner_email, appt.date, appt.time).deliver!                         
+          if(Date.parse(appt.date) < Date.today)
+               UserMailer.reminder_email(appt.owner_email, appt.date, appt.time).deliver!   
+          end
       end
      end
 end
