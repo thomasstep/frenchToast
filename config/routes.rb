@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/my_profile', to: 'welcome#my_profile'
   post '/delete_car/:id', to: 'welcome#delete_car'
   get '/admin', to: 'welcome#admin'
-
+  get '/not_admin', to: 'welcome#not_admin'
   devise_scope :user do
     get '/sign_up', to: 'devise/registrations#new'
     get '/sign_in', to: 'devise/sessions#new'
