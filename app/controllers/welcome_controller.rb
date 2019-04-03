@@ -99,7 +99,7 @@ class WelcomeController < ApplicationController
   end
 
   def admin
-    if(!current_user.admin?)
+    if(current_user.nil? or !current_user.admin?)
       redirect_to "/not_admin"
     else
       @appointments = Appointment.all
