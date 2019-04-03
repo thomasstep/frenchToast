@@ -50,7 +50,7 @@ class WelcomeController < ApplicationController
 
       @app = Appointment.new(owner_email: @email, VIN: @vehicleVin, date: @desiredDate, time: @desiredTime, reason: @reason )
       if @app.valid?
-        @appointment_scheduled = true
+        @appointment_scheduled = false
         @app.save
       else
         @appointment_canceled = true
@@ -60,8 +60,9 @@ class WelcomeController < ApplicationController
 
   def my_profile
     if current_user.nil?
-      redirect_to "/no_profile"
-    else
+      redirect_to "/sign_in"
+      
+    else 
       @appointments = Appointment.where(owner_email: current_user.email)
       @cars = Car.where(email: current_user.email)
     end
@@ -112,3 +113,4 @@ class WelcomeController < ApplicationController
   end
   
 end
+  

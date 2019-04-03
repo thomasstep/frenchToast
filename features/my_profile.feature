@@ -39,4 +39,4 @@ Feature: Check that you can see appointments that you have made
 
   Scenario: Logged out user accesses my profile 
   When I am on the my profile page
-  Then I should see "You are not logged in"
+  Then I should see "Sign in"
