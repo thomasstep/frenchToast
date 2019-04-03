@@ -50,7 +50,7 @@ class WelcomeController < ApplicationController
 
       @app = Appointment.new(owner_email: @email, VIN: @vehicleVin, date: @desiredDate, time: @desiredTime, reason: @reason )
       if @app.valid?
-        @appointment_scheduled = false
+        @appointment_scheduled = true
         @app.save
       else
         @appointment_canceled = true

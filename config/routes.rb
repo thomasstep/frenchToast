@@ -10,12 +10,9 @@ Rails.application.routes.draw do
   get '/my_profile', to: 'welcome#my_profile'
   post '/delete_car/:id', to: 'welcome#delete_car'
   get '/admin', to: 'welcome#admin'
-<<<<<<< HEAD
   get '/not_admin', to: 'welcome#not_admin'
   get '/no_profile', to: 'welcome#no_profile'
-=======
 
->>>>>>> parent of 9e6411c... potential fix for verification of admins
   devise_scope :user do
     get '/sign_up', to: 'devise/registrations#new'
     get '/sign_in', to: 'devise/sessions#new'
