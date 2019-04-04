@@ -59,8 +59,14 @@ class WelcomeController < ApplicationController
   end
 
   def my_profile
-    @appointments = Appointment.where(owner_email: current_user.email)
-    @cars = Car.where(email: current_user.email)
+    if current_user.nil?
+      redirect_to "/sign_in"
+      
+    else 
+      @appointments = Appointment.where(owner_email: current_user.email)
+      @cars = Car.where(email: current_user.email)
+    end
+   
   end
 
   def my_garage
@@ -103,3 +109,4 @@ class WelcomeController < ApplicationController
   end
   
 end
+  
