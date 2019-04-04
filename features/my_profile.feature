@@ -36,3 +36,7 @@ Feature: Check that you can see appointments that you have made
   Then the "firstName" field should contain "Jeff"
   Then the "lastName" field should contain "Huang"
   Then the "phone" field should contain "5555551234"
+
+  Scenario: Logged out user accesses my profile 
+  When I am on the my profile page
+  Then I should see "Sign in"
