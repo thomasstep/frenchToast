@@ -76,7 +76,6 @@ class WelcomeController < ApplicationController
   def new_car
     @addcar_cancelled = false
     @addedcar = false
-    @new_car = Car.all
 
     #wanna see the most disgusting code ever?
     if params.has_key?(:vehicleVin)
@@ -89,15 +88,13 @@ class WelcomeController < ApplicationController
       if @new.valid?
         @addedcar = true
         @new.save
-
       else
         flash[:notice] = "Unable to add car"
         @addcar_cancelled = true
-
       end
     end
   end
-  
+
   def delete_car
     @car = Car.where(VIN: params[:id])
     @car.destroy_all
@@ -107,6 +104,6 @@ class WelcomeController < ApplicationController
   def admin
     @appointments = Appointment.all
   end
-  
+
 end
   
