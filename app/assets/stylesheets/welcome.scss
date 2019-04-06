@@ -81,6 +81,7 @@ body, html {
 
 .landing-subtext {
     font-size: 1.8vw;
+    color: rgb(50, 50, 50);
 }
 
 .landing-row {
@@ -88,14 +89,14 @@ body, html {
 }
 
 .landing-text-bg {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(255,255,255,0.6);
 }
 
-.visit-text {
+.landing-subtitle {
     font-size: 5vw
 }
 
-.visit-text:before, .visit-text:after {
+.landing-subtitle:before, .landing-subtitle:after {
     position: absolute;
     top: 51%;
     overflow: hidden;
@@ -105,7 +106,7 @@ body, html {
     background-color: red;
 }
 
-.visit-text:before {
+.landing-subtitle:before {
     margin-left: -50%;
     text-align: right;
 }
