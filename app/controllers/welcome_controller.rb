@@ -52,6 +52,7 @@ class WelcomeController < ApplicationController
       if @app.valid?
         @appointment_scheduled = true
         @app.save
+        UserMailer.welcome_email(@email, @desiredDate, @desiredTime).deliver_now
       else
         @appointment_canceled = true
       end
@@ -59,10 +60,15 @@ class WelcomeController < ApplicationController
   end
 
   def my_profile
-    @appointments = Appointment.
+    if current_user.nil?
+      redirect_to "/sign_in"
+      
+    else 
+      @appointments = Appointment.
       where(owner_email: current_user.email).
       where("date >= ?", Date.today.to_formatted_s )
     @cars = Car.where(email: current_user.email)
+    end
   end
 
   def my_garage
@@ -72,7 +78,6 @@ class WelcomeController < ApplicationController
   def new_car
     @addcar_cancelled = false
     @addedcar = false
-    @new_car = Car.all
 
     #wanna see the most disgusting code ever?
     if params.has_key?(:vehicleVin)
@@ -85,11 +90,9 @@ class WelcomeController < ApplicationController
       if @new.valid?
         @addedcar = true
         @new.save
-
       else
         flash[:notice] = "Unable to add car"
         @addcar_cancelled = true
-
       end
     end
   end
@@ -105,3 +108,4 @@ class WelcomeController < ApplicationController
   end
 
 end
+  

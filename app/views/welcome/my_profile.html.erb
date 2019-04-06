@@ -1,11 +1,13 @@
+
+
 <div class="container-fluid">
   <br>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-4 offset-md-4">
       <div class="card text-center">
         <h5 class="card-header">Account Settings</h5>
         <div class="card-body">
-          <p class="card-subtitle mb-2 text-muted">Go here to change your email, password, or delete your account</p>
+          <p class="card-subtitle mb-2 text-muted">Change your account information or delete your account</p>
           <a href="/account_settings" class="btn btn-primary stretched-link">Go to Account Settings</a>
         </div>
       </div>
@@ -13,7 +15,7 @@
   </div>
   <br><br>
   <div class="row text-center">
-    <div class="col-md-4 offset-md-2">
+    <div class="col-md-5 offset-md-1 mb-3">
       <div class="card">
         <h5 class="card-header">Saved Cars</h5>
         <div class="card-body">
@@ -43,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5 mb-3">
       <div class="card">
         <h5 class="card-header">Service Appointments</h5>
         <div class="card-body">
@@ -53,7 +55,7 @@
             <ul class="list-group list-group-flush">
               <% @appointments.each do | appt | %>
                 <li class="list-group-item">
-                  <%= "Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %>
+                  <%= "Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}" %>
                 </li>
               <%end%>
             </ul>
