@@ -2,7 +2,7 @@ Feature: Basic information
 
   Scenario: Go to landing page
   Given I am on the home page
-  Then I should see "3404 Bering Dr., Houston, TX 77057"
+  Then I should see "Find Out More About Us"
 
   Scenario: Go to about us page
   Given I am on the about us page
