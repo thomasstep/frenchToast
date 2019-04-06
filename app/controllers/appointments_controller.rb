@@ -1,5 +1,13 @@
 class AppointmentsController < ApplicationController
 
+    def index
+        @appointments = Appointment.all
+    end
+    
+    def new
+        @appointment = Appointment.new
+    end
+    
     def edit
         @appointment = Appointment.find(params[:id])
     end
@@ -17,5 +25,8 @@ class AppointmentsController < ApplicationController
     def appointment_params
         params.require(:appointment).permit(:date, :time)
     end
-
+    
+    def search
+    
+    end
 end

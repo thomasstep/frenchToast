@@ -1,9 +1,18 @@
+</br>
+<div align="center">
+  <%= form_tag admin_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Date" %>
+  <% end %>
+</div>
+</br>
+
 <div align="center">
   <div class="col-md-6">
     <div class="card">
       <h5 class="card-header">Current Appointments</h5>
       <div class="card-body">
-        <%@appointments.where("date >= ?", Date.current).each do | appt |%>
+        <%@appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt |%>
           <%="Appointment for #{appt.owner_email} on #{appt.date} in the #{appt.time}"%> <%= link_to 'Edit', edit_appointment_path(appt) %>
           </br>
         <%end%>
@@ -17,7 +26,7 @@
     <div class="card">
       <h5 class="card-header">Previous Appointments</h5>
       <div class="card-body">
-        <%@appointments.where("date < ?", Date.current).each do | appt |%>
+        <%@appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt |%>
           <%="Appointment for #{appt.owner_email} on #{appt.date} in the #{appt.time}"%>
           </br>
         <%end%>
