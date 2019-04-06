@@ -5,7 +5,20 @@ Given /^the following users exist:$/ do | table |
         :password => user["password"],
         :phone => user["phone"],
         :first_name => user["first_name"],
-        :last_name => user["last_name"]
+        :last_name => user["last_name"],
+        :admin => user["admin"]
+      ).save!
+  end
+end
+
+Given /^the following appointments exist:$/ do | table |
+  table.hashes.each do |appt|
+    Appointment.new(
+        :VIN => appt["VIN"],
+        :owner_email => appt["email"],
+        :date => appt["date"],
+        :time => appt["time"],
+        :reason => appt["reason"]
       ).save!
   end
 end
