@@ -52,6 +52,7 @@ class WelcomeController < ApplicationController
       if @app.valid?
         @appointment_scheduled = true
         @app.save
+        UserMailer.welcome_email(@email, @desiredDate, @desiredTime).deliver_now
       else
         @appointment_canceled = true
       end
