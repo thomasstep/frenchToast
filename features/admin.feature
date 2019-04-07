@@ -13,6 +13,7 @@ Feature: Control an admin account with appointment modification privileges
   | test@gmail.com  | test1234     | 5555551234 | John       | Doe       | true  |
   | test1@gmail.com | test1234     | 5555551235 | Jonn       | Joe       | false |
 
+
   Scenario: View all previous and current appointments
   Given "test@gmail.com" is logged in using password "test1234"
   Then I should see "Admin"
@@ -29,3 +30,4 @@ Feature: Control an admin account with appointment modification privileges
   Scenario: User not logged in tries to see admin 
   When I go to the admin page
   Then I should see "You are not an Admin"
+
