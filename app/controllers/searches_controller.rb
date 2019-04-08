@@ -13,14 +13,14 @@ class SearchesController < ApplicationController
         @search = Search.find(params[:id])
     end
     
-    def search_params
-        params.require(:search).permit(:VIN, :email, :after_date, :before_date, :time)
-    end
-    
     def destroy
         @search = Search.find(params[:id])
         @search.destroy
         
         redirect_to admin_path
+    end
+    
+    def search_params
+        params.require(:search).permit(:VIN, :email, :after_date, :before_date, :time)
     end
 end

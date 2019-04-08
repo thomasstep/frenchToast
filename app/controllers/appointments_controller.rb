@@ -26,7 +26,4 @@ class AppointmentsController < ApplicationController
         params.require(:appointment).permit(:date, :time)
     end
     
-    def search
-    
-    end
 end
