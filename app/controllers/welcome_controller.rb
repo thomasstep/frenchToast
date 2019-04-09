@@ -64,10 +64,11 @@ class WelcomeController < ApplicationController
       redirect_to "/sign_in"
       
     else 
-      @appointments = Appointment.where(owner_email: current_user.email)
-      @cars = Car.where(email: current_user.email)
+      @appointments = Appointment.
+      where(owner_email: current_user.email).
+      where("date >= ?", Date.today.to_formatted_s )
+    @cars = Car.where(email: current_user.email)
     end
-   
   end
 
   def my_garage
