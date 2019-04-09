@@ -57,13 +57,13 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 }
 
 .caption {
-    position: absolute;
-    left: 15%;
-    top: 25%;
-    width: 70%;
     text-align: center;
     color: #000;
 }
