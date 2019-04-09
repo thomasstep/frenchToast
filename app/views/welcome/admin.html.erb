@@ -24,7 +24,7 @@
         <h5 class="card-header">Previous Appointments</h5>
         <div class="card-body">
           <%@appointments.where("date < ?", Date.current).each do | appt |%>
-            <%="Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} on #{appt.date} in the #{appt.time}"%>
+            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%>
             </br>
           <%end%>
         </div>
