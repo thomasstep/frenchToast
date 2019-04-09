@@ -1,26 +1,33 @@
-<div align="center">
-  <div class="col-md-6">
-    <div class="card">
-      <h5 class="card-header">Current Appointments</h5>
-      <div class="card-body">
-        <%@appointments.where("date >= ?", Date.current).each do | appt |%>
-          <%="Appointment for #{appt.owner_email} on #{appt.date} in the #{appt.time}"%> <%= link_to 'Edit', edit_appointment_path(appt) %>
-          </br>
-        <%end%>
+<div align="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
+      <h1>Administrator Page</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <h5 class="card-header">Current Appointments</h5>
+        <div class="card-body">
+          <%@appointments.where("date >= ?", Date.current).each do | appt |%>
+            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> <%= link_to 'Edit', edit_appointment_path(appt) %>
+            </br>
+          <%end%>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </br></br>
-<div align="center">
-  <div class="col-md-6">
-    <div class="card">
-      <h5 class="card-header">Previous Appointments</h5>
-      <div class="card-body">
-        <%@appointments.where("date < ?", Date.current).each do | appt |%>
-          <%="Appointment for #{appt.owner_email} on #{appt.date} in the #{appt.time}"%>
-          </br>
-        <%end%>
+  <div align="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <h5 class="card-header">Previous Appointments</h5>
+        <div class="card-body">
+          <%@appointments.where("date < ?", Date.current).each do | appt |%>
+            <%="Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} on #{appt.date} in the #{appt.time}"%>
+            </br>
+          <%end%>
+        </div>
       </div>
     </div>
   </div>
