@@ -1,16 +1,12 @@
 class WelcomeController < ApplicationController
 
   def index
-    @teamName = "French Toast"
-    flash[:alert] = "hey"
   end
 
   def services
-
   end
 
   def about_us
-  	@greeting = "The Z Center"
   end
 
   def schedule
@@ -62,8 +58,8 @@ class WelcomeController < ApplicationController
   def my_profile
     if current_user.nil?
       redirect_to "/sign_in"
-      
-    else 
+
+    else
       @appointments = Appointment.
       where(owner_email: current_user.email).
       where("date >= ?", Date.today.to_formatted_s )
@@ -72,7 +68,6 @@ class WelcomeController < ApplicationController
   end
 
   def my_garage
-
   end
 
   def new_car
@@ -112,4 +107,3 @@ class WelcomeController < ApplicationController
   end
 
 end
-  

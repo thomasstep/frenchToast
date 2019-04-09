@@ -1,21 +1,29 @@
 class AppointmentsController < ApplicationController
 
-    def edit
-        @appointment = Appointment.find(params[:id])
-    end
+  def new
+    @appointment = Appointment.new
+  end
 
-    def update
-      #@appointmentUpdated = false
-      @appointment = Appointment.find(params[:id])
+  def edit
+    @appointment = Appointment.find(params[:id])
+  end
 
-      if @appointment.update_attributes!(appointment_params)
-          #@appointmentUpdated = true
-          redirect_to "/admin"
-      end
-    end
+  def update
+    #@appointmentUpdated = false
+    @appointment = Appointment.find(params[:id])
 
-    def appointment_params
-        params.require(:appointment).permit(:date, :time)
+    if @appointment.update_attributes!(update_appointment_params)
+      #@appointmentUpdated = true
+      redirect_to "/admin"
     end
+  end
+
+  def appointment_params
+    params.require(:appointment).permit(:first_name)
+  end
+
+  def update_appointment_params
+    params.require(:appointment).permit(:date, :time)
+  end
 
 end
