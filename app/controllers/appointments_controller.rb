@@ -23,16 +23,17 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    if appointment_params[:time] == 1
-      appointment_params[:time] = "Morning"
-    elsif appointment_params[:time] == 2
-      appointment_params[:time] = "Afternoon"
-    elsif appointment_params[:time] == 3
-      appointment_params[:time] = "Evening"
+    if params[:appointment][:time] == "1"
+      params[:appointment][:time] = "Morning"
+    elsif params[:appointment][:time] == "2"
+      params[:appointment][:time] = "Afternoon"
+    elsif params[:appointment][:time] == "3"
+      params[:appointment][:time] = "Evening"
     end
-    
+
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
+      UserMailer.welcome_email(params[:appointment][:owner_email], params[:appointment][:date], params[:appointment][:time]).deliver_now
       redirect_to '/my_profile'
     else
       render :new
