@@ -1,5 +1,6 @@
-$(document).ready(function(){
+document.addEventListener("turbolinks:load", function() {
   if (document.location.pathname == "/schedule") {
+    $('h1').text("TESTTEST");
     $('select').on('change', function() {
       var year_make_model = $('select#savedCars option:selected').text().split(" ");
       console.log(year_make_model);
@@ -9,4 +10,4 @@ $(document).ready(function(){
       $('input#vehicleVin').val(this.value);
     });
   }
-});
+})
