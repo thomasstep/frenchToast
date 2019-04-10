@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-8 offset-md-2 text-center">
     <%= form_tag admin_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
+      <%= date_field_tag :search, params[:search] %>
       <%= submit_tag "Search Date" %>
     <% end %>
     <%= link_to "Advanced Search", new_search_path %>
@@ -19,7 +19,7 @@
       <div class="card">
         <h5 class="card-header">Current Appointments</h5>
         <div class="card-body">
-          <%@appointments.where("date >= ?", Date.current).each do | appt |%>
+          <%@appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt |%>
             <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> <%= link_to 'Edit', edit_appointment_path(appt) %>
             </br>
           <%end%>
@@ -33,7 +33,7 @@
       <div class="card">
         <h5 class="card-header">Previous Appointments</h5>
         <div class="card-body">
-          <%@appointments.where("date < ?", Date.current).each do | appt |%>
+          <%@appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt |%>
             <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%>
             </br>
           <%end%>
