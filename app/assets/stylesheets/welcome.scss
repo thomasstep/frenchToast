@@ -44,3 +44,73 @@ body {
     position:relative;
     top:-7px;
 }
+
+body, html {
+    height: 100%;
+}
+
+.bgimg { 
+  background-image: url("nissan370z.jpg");
+
+  height: 100%; 
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.caption {
+    text-align: center;
+    color: #000;
+}
+
+.landing-text {
+    color: white;
+    padding: 8px;
+}
+
+.landing-title {
+    font-size: 7vw;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.landing-subtext {
+    font-size: 1.8vw;
+    color: rgb(50, 50, 50);
+}
+
+.landing-row {
+    margin: 0;
+}
+
+.landing-text-bg {
+    background-color: rgba(255,255,255,0.6);
+}
+
+.landing-subtitle {
+    font-size: 5vw
+}
+
+.landing-subtitle:before, .landing-subtitle:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: red;
+}
+
+.landing-subtitle:before {
+    margin-left: -50%;
+    text-align: right;
+}
+
+.address {
+    font-size: 1.8vw;
+}
