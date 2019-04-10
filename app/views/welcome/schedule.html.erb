@@ -59,6 +59,17 @@
       </div>
     </div>
   </div>
+  <% if user_signed_in?%>
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+          <label for="savedCars">Saved Cars</label>
+          <%= select_tag("Saved Cars", options_for_select(@cars, 0), class:"form-control", id:"savedCars", name:"savedCars") %>
+          <small class="form-text text-muted">Use a car saved to your profile or create a new car.</small>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-md-3 offset-md-2">
       <div class="form-group">

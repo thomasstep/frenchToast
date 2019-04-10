@@ -31,6 +31,12 @@ class WelcomeController < ApplicationController
       if !current_user.phone.nil?
         @user_phone = current_user.phone
       end
+      
+      @cars = [["Use New Car", "0"]]
+      saved_cars = Car.where(email: current_user.email)
+      saved_cars.each do |car|
+        @cars.push(["#{car.year} #{car.make} #{car.model}", car.VIN])
+      end
     end
     @appointment_canceled = false
     @appointment_scheduled = false
