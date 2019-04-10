@@ -31,7 +31,8 @@ class WelcomeController < ApplicationController
       if !current_user.phone.nil?
         @user_phone = current_user.phone
       end
-      
+
+      @show_saved_cars = true      
       @cars = [["Use New Car", "0"]]
       saved_cars = Car.where(email: current_user.email)
       saved_cars.each do |car|
