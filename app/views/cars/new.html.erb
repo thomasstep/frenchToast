@@ -33,7 +33,7 @@
           <%= f.text_field :model,
               {
                 class: "form-control",
-                pattern: "^[a-zA-Z]{1,15}$",
+                pattern: "^[a-zA-Z0-9-]{1,15}$",
                 title: "Model must be between 1 and 15 characters"
               }
           %>
