@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   get '/services', to: 'welcome#services'
   get '/about_us', to: 'welcome#about_us'
-  get '/schedule', to: 'welcome#schedule'
-  get '/new_car', to: 'welcome#new_car'
+  get '/schedule', to: 'appointments#new'
+  get '/new_car', to: 'cars#new'
   get '/my_profile', to: 'welcome#my_profile'
-  post '/delete_car/:id', to: 'welcome#delete_car'
+  post '/delete_car/:id', to: 'cars#destroy'
   get '/admin', to: 'welcome#admin'
   get '/not_admin', to: 'welcome#not_admin'
 
