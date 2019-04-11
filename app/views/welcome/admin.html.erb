@@ -1,15 +1,25 @@
 <div align="container-fluid">
   <div class="row">
-    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
+    <div class="col-md-8 offset-md-2 text-center mb-3 mt-3">
       <h1>Administrator Page</h1>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+    <%= form_tag admin_path, :method => 'get' do %>
+      <%= date_field_tag :search, params[:search] %>
+      <%= submit_tag "Search Date" %>
+    <% end %>
+    <%= link_to "Advanced Search", new_search_path %>
+    </div>
+  </div>
+  </br>
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <h5 class="card-header">Current Appointments</h5>
         <div class="card-body">
-          <%@appointments.where("date >= ?", Date.current).each do | appt |%>
+          <%@appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt |%>
             <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> <%= link_to 'Edit', edit_appointment_path(appt) %>
             </br>
           <%end%>
@@ -17,13 +27,13 @@
       </div>
     </div>
   </div>
-</br></br>
+  </br></br>
   <div align="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <h5 class="card-header">Previous Appointments</h5>
         <div class="card-body">
-          <%@appointments.where("date < ?", Date.current).each do | appt |%>
+          <%@appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt |%>
             <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%>
             </br>
           <%end%>

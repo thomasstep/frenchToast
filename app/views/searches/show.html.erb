@@ -1,0 +1,25 @@
+<h2 align="center">Search Results</h2>
+</br>
+
+
+<div class="container-fluid">
+    <% if @search.search_appointments.empty? %>
+        <p> No Appointments Fit This Search</p>
+        
+    <% else %>
+        <% @search.search_appointments.each do |a| %>
+        
+        Email: <%= a.owner_email%> </br>
+        Date: <%= a.date%> </br>
+        Time: <%= a.time%> </br>
+        VIN: <%= a.VIN %> </br>
+        
+        </br>
+        </br>
+        </br>
+        <% end %>
+    <% end %>
+    </br>
+    
+    <%= link_to 'Return', new_search_path %>
+</div>

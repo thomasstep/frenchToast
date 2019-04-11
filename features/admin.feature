@@ -30,4 +30,3 @@ Feature: Control an admin account with appointment modification privileges
   Scenario: User not logged in tries to see admin 
   When I go to the admin page
   Then I should see "You are not an Admin"
-

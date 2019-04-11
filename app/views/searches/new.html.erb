@@ -1,0 +1,48 @@
+<h2 align="center">Appointments Lookup</h2>
+
+<div class="container-fluid">
+  <%= form_for @search do |s| %>
+  
+    <div class="row">
+      <div class="col-md-2 offset-md-3">
+        <div class="form-group">
+          <%= s.label :VIN %> </br>
+          <%= s.text_field :VIN %>
+        </div>
+      </div>
+      <div class="col-md-2 offset-md-2">
+        <div class="form-group">
+          <%= s.label :email %>
+          <%= s.text_field :email %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2 offset-md-3">
+          <div class="form-group">
+              <%= s.label :after_date%>
+              <%= s.date_field :after_date %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+              <%= s.label :before_date%>
+              <%= s.date_field :before_date %>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+              <%= s.label :time %>
+              <%= s.select :time, ["Any", "Morning", "Afternoon", "Evening"], {}, class: "form-control"%>
+          </div>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4 offset-md-4 text-center">
+         <%= s.submit "Search", class:"btn btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>
