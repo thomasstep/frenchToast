@@ -33,10 +33,10 @@ Feature: Check that you can see appointments that you have made
   When I fill in "Current password" with "test1234"
   When I press "Update"
   Given I am on the schedule page
-  Then the "firstName" field should contain "Jeff"
-  Then the "lastName" field should contain "Huang"
-  Then the "phone" field should contain "5555551234"
+  Then the "appointment_first_name" field should contain "Jeff"
+  Then the "appointment_last_name" field should contain "Huang"
+  Then the "appointment_phone" field should contain "5555551234"
 
-  Scenario: Logged out user accesses my profile 
+  Scenario: Logged out user accesses my profile
   When I am on the my profile page
   Then I should see "Sign in"

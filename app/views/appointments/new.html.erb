@@ -1,0 +1,166 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
+      <h1>Schedule a Service Appointment</h1>
+    </div>
+  </div>
+  <%= form_for @appointment do |f| %>
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :first_name, "First Name" %>
+          <%= f.text_field :first_name,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z]{1,15}$",
+                title: "Name must be from 1 to 15 characters",
+                value: @user_first_name
+              }
+          %>
+        </div>
+      </div>
+
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :last_name, "Last Name" %>
+          <%= f.text_field :last_name,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z]{1,15}$",
+                title: "Name must be from 1 to 15 characters",
+                value: @user_last_name
+              }
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :owner_email, "Email" %>
+          <%= f.text_field :owner_email,
+              {
+                class: "form-control",
+                pattern: "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                title: "xxxxxx@xxx.xxx",
+                value: @user_email
+              }
+          %>
+          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+      </div>
+
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :phone %>
+          <%= f.text_field :phone,
+              {
+                class: "form-control",
+                pattern: "^(\+\d{1,2}\s?)\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$",
+                title: "Phone number must be 10 digit numeric, (XXX)-XXX-XXX, XXXXXXXXXX, XXX-XXX-XXXX",
+                value: @user_phone
+              }
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :year, "Vehicle Year" %>
+          <%= f.text_field :year,
+              {
+                class: "form-control",
+                pattern: "^(20[0-2][0-9])|(19[0-9][0-9])$",
+                title: "1900-Current Year"
+              }
+          %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= f.label :make, "Vehicle Make" %>
+          <%= f.text_field :make,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z]{1,15}$",
+                title: "Make must be between 1 and 15 characters"
+              }
+          %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :model, "Vehicle Model" %>
+          <%= f.text_field :model,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z0-9-]{1,15}$",
+                title: "Model must be between 1 and 15 characters"
+              }
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :VIN, "VIN" %>
+          <%= f.text_field :VIN,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z0-9]{17}$",
+                title: "17 character alphanumeric"
+              }
+          %>
+          <small id="vehicleVin" class="form-text text-muted">Vehicle identification number found on insurance card or driver side dash board.</small>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= f.label :date, "Desired Date" %>
+          <%= f.date_field :date,
+              class: "form-control"
+          %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :time, "Desired Time" %>
+          <%= f.select :time,
+              options_for_select(["Morning", "Afternoon", "Evening"]),
+              {},
+              class: "form-control"
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+          <%= f.label :reason, "Reason For Scheduling" %>
+          <%= f.text_area :reason,
+                class: "form-control"
+          %>
+          <small id="reason" class="form-text text-muted">Please describe the problems you are having with your vehicle.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 offset-md-4 text-center">
+        <%= f.submit "Submit",
+            class:"btn btn-primary"
+        %>
+      </div>
+    </div>
+  <% end %>
+</div>

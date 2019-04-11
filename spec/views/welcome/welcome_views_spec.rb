@@ -14,13 +14,6 @@ RSpec.describe "welcome/about_us", :type => :view do
   end
 end
 
-RSpec.describe "welcome/schedule", :type => :view do
-  it "displays the schedule appointment form" do
-    render
-    expect(rendered).to include("We'll never share your email with anyone else.")
-  end
-end
-
 RSpec.describe "welcome/services", :type => :view do
   it "displays the services offered" do
     render
