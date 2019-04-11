@@ -10,7 +10,8 @@
         <% @search.search_appointments.each do |a| %>
         
         <%= a.first_name %> <%= a.last_name %> </br>
-        <%= a.owner_email%> </br>
+        Email: <%= a.owner_email%> </br>
+        Phone: <%= a.phone%> </br>
         Date: <%= a.date%> </br>
         Time: <%= a.time%> </br>
         Vehicle: <%= a.make %> <%= a.model %> <%= a.year %> </br>
