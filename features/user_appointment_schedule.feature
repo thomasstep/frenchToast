@@ -30,3 +30,16 @@ Feature: Login to an existing account
   And I fill in "appointment_reason" with "Cucumber testing"
   And I press "Submit"
   Then I should be on the my profile page
+  
+  Scenario: Saved cars appear
+  Given "test@gmail.com" is logged in using password "test1234"
+  Given I am on the my profile page
+  And I follow "Add New Car"
+  And I fill in "car_year" with "2010"
+  And I fill in "car_make" with "Toyota"
+  And I fill in "car_model" with "Camry"
+  And I fill in "car_VIN" with "12345123451234512"
+  And I press "Submit"
+  And I am on the schedule page
+  And I select "2010 Toyota Camry"
+  Then the "savedCars" field should contain "12345123451234512"
