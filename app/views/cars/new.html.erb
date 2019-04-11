@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <%= form_for @car do |f| %>
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <div class="form-group">
+          <%= f.label :year, "Vehicle Year" %>
+          <%= f.text_field :year,
+              {
+                class: "form-control",
+                pattern: "^(20[0-2][0-9])|(19[0-9][0-9])$",
+                title: "1900-Current Year"
+              }
+          %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= f.label :make, "Vehicle Make" %>
+          <%= f.text_field :make,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z]{1,15}$",
+                title: "Make must be between 1 and 15 characters"
+              }
+          %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :model, "Vehicle Model" %>
+          <%= f.text_field :model,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z0-9-]{1,15}$",
+                title: "Model must be between 1 and 15 characters"
+              }
+          %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+          <%= f.label :VIN, "Vehicle VIN" %>
+          <%= f.text_field :VIN,
+              {
+                class: "form-control",
+                pattern: "^[a-zA-Z0-9]{17}$",
+                title: "17 character alphanumeric"
+              }
+          %>
+          <small id="vehicleVin" class="form-text text-muted">Vehicle identification number found on insurance card or driver side dash board.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 offset-md-4 text-center">
+        <%= f.hidden_field :email, :value => @current_email %>
+        <%= f.submit "Submit",
+            class:"btn btn-primary"
+        %>
+      </div>
+    </div>
+  <% end %>
+</div>
