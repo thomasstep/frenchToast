@@ -7,7 +7,10 @@ class AppointmentsController < ApplicationController
     def update
       #@appointmentUpdated = false
       @appointment = Appointment.find(params[:id])
-
+      #if !params[:date].present?
+       # params[:date] = Date.current
+        #@appointment.date = Date.current
+      #end
       if @appointment.update_attributes!(appointment_params)
           #@appointmentUpdated = true
           redirect_to "/admin"
