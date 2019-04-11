@@ -17,6 +17,28 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= f.label :parts_needed %> </br>
+          <%= f.text_field :parts_needed %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :hours_needed %> </br>
+          <%= f.text_field :hours_needed %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+           <%= f.label :cost %> </br>
+        $  <%= f.text_field :cost %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-4 offset-md-4 text-center">
          <%= f.submit "Update", class:"btn btn-primary"%>
       </div>
