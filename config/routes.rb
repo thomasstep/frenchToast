@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/new_car', to: 'cars#new'
   get '/my_profile', to: 'welcome#my_profile'
   post '/delete_car/:id', to: 'cars#destroy'
+  post '/delete_appt/:id', to: 'appointments#destroy'
   get '/admin', to: 'welcome#admin'
   get '/not_admin', to: 'welcome#not_admin'
 

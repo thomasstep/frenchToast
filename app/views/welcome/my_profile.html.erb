@@ -34,8 +34,8 @@
                     <br>
                     <%="VIN: #{car.VIN}"%>
                   </div>
-                  <div class="cold-md-4">
-                    <%= button_to 'Delete Car', '/delete_car/' + car.VIN, method: :post, class: 'btn btn-sm btn-outline-danger', data:{ confirm: "Are you sure you want to delete this car?" } %>
+                  <div class="col-md-4">
+                    <%= button_to 'Delete', '/delete_car/' + car.VIN, method: :post, class: 'btn btn-sm btn-outline-danger', data:{ confirm: "Are you sure you want to delete this car?" } %>
                   </div>
                 </div>
               </li>
@@ -57,7 +57,20 @@
             <ul class="list-group list-group-flush">
               <% @appointments.each do | appt | %>
                 <li class="list-group-item">
-                  <%= "Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}" %>
+                  <div class="row align-items-center text-left">
+                    <div class="col-md-8">
+                      <%= "Appointment for #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}" %>
+                    </div>
+                    <div class="col-md-2">
+                    <%= button_to 'Delete',
+                        "/delete_appt/#{appt.id}",
+                        class: 'btn btn-sm btn-outline-danger',
+                        data: {
+                          confirm: "Are you sure you want to delete this appointment?"
+                        }
+                    %>
+                    </div>
+                  </div>
                 </li>
               <%end%>
             </ul>

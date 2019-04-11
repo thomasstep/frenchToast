@@ -159,4 +159,31 @@ RSpec.describe AppointmentsController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
+
+  describe "Destroy should actually destroy" do
+    it "should reduce appointment count by 1" do
+      appt = Appointment.new(
+        :first_name => "John",
+        :last_name => "Test",
+        :owner_email => "rspec@gmail.com",
+        :phone => "5555551232",
+        :year => "1990",
+        :make => "Toyota",
+        :model => "Supra",
+        :VIN => "12345678901234567",
+        :date => "2040-01-01",
+        :time => "3",
+        :reason => "Rspec testing"
+      )
+      appt.save!
+      apptId = Appointment.first.id
+      params = {
+        id: apptId
+      }
+      expect do
+        post :destroy, params: params
+        expect(response).to redirect_to("/my_profile")
+      end.to change(Appointment, :count).by(-1)
+    end
+  end
 end
