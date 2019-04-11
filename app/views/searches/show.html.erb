@@ -7,7 +7,7 @@
         <p> No Appointments Fit This Search</p>
         
     <% else %>
-        <%= @search.search_appointments.each do |a| %>
+        <% @search.search_appointments.each do |a| %>
         
         Email: <%= a.owner_email%> </br>
         Date: <%= a.date%> </br>
