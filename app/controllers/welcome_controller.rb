@@ -1,113 +1,24 @@
 class WelcomeController < ApplicationController
 
   def index
-    @teamName = "French Toast"
-    flash[:alert] = "hey"
   end
 
   def services
-
   end
 
   def about_us
-  	@greeting = "The Z Center"
-  end
-
-  def schedule
-    @user_first_name = ""
-    @user_last_name = ""
-    @user_email = ""
-    @user_phone = ""
-    if user_signed_in?
-      if !current_user.email.nil?
-        @user_email = current_user.email
-      end
-      if !current_user.first_name.nil?
-        @user_first_name = current_user.first_name
-      end
-      if !current_user.last_name.nil?
-        @user_last_name = current_user.last_name
-      end
-      if !current_user.phone.nil?
-        @user_phone = current_user.phone
-      end
-
-      @show_saved_cars = true      
-      @cars = [["Use New Car", "0"]]
-      saved_cars = Car.where(email: current_user.email)
-      saved_cars.each do |car|
-        @cars.push(["#{car.year} #{car.make} #{car.model}", car.VIN])
-      end
-    end
-    @appointment_canceled = false
-    @appointment_scheduled = false
-    @schedule = Appointment.all
-
-    #wanna see the most disgusting code ever?
-    if params.has_key?(:email)
-      @email = params[:email]
-      @phone = params[:phone]
-      @vehicleYear = params[:vehicleYear]
-      @vehicleMake = params[:vehicleMake]
-      @vehicleModel = params[:vehicleModel]
-      @vehicleVin = params[:vehicleVin]
-      @desiredDate = params[:desiredDate]
-      @desiredTime = params[:desiredTime]
-      @reason = params[:reason]
-
-      @app = Appointment.new(owner_email: @email, VIN: @vehicleVin, date: @desiredDate, time: @desiredTime, reason: @reason )
-      if @app.valid?
-        @appointment_scheduled = true
-        @app.save
-        UserMailer.welcome_email(@email, @desiredDate, @desiredTime).deliver_now
-      else
-        @appointment_canceled = true
-      end
-    end
   end
 
   def my_profile
     if current_user.nil?
       redirect_to "/sign_in"
-      
-    else 
+
+    else
       @appointments = Appointment.
       where(owner_email: current_user.email).
       where("date >= ?", Date.today.to_formatted_s )
     @cars = Car.where(email: current_user.email)
     end
-  end
-
-  def my_garage
-
-  end
-
-  def new_car
-    @addcar_cancelled = false
-    @addedcar = false
-
-    #wanna see the most disgusting code ever?
-    if params.has_key?(:vehicleVin)
-      @vehicleYear = params[:vehicleYear]
-      @vehicleMake = params[:vehicleMake]
-      @vehicleModel = params[:vehicleModel]
-      @vehicleVin = params[:vehicleVin]
-
-      @new = Car.new(email: current_user.email, year: @vehicleYear, VIN: @vehicleVin, make: @vehicleMake, model: @vehicleModel)
-      if @new.valid?
-        @addedcar = true
-        @new.save
-      else
-        flash[:notice] = "Unable to add car"
-        @addcar_cancelled = true
-      end
-    end
-  end
-
-  def delete_car
-    @car = Car.where(VIN: params[:id])
-    @car.destroy_all
-    redirect_to "/my_profile"
   end
 
   def admin
@@ -119,4 +30,3 @@ class WelcomeController < ApplicationController
   end
 
 end
-  

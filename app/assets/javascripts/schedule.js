@@ -3,15 +3,15 @@ document.addEventListener("turbolinks:load", function() {
     $('select').on('change', function() {
       if ($('select#savedCars option:selected').text() != "Use New Car") {
         var year_make_model = $('select#savedCars option:selected').text().split(" ");
-          $('input#vehicleYear').val(year_make_model[0]);
-          $('input#vehicleMake').val(year_make_model[1]);
-          $('input#vehicleModel').val(year_make_model[2]);
-          $('input#vehicleVin').val(this.value);
+          $('input#appointment_year').val(year_make_model[0]);
+          $('input#appointment_make').val(year_make_model[1]);
+          $('input#appointment_model').val(year_make_model[2]);
+          $('input#appointment_VIN').val(this.value);
         } else {
-          $('input#vehicleYear').val("");
-          $('input#vehicleMake').val("");
-          $('input#vehicleModel').val("");
-          $('input#vehicleVin').val("");
+          $('input#appointment_year').val("");
+          $('input#appointment_make').val("");
+          $('input#appointment_model').val("");
+          $('input#appointment_VIN').val("");
         }
     });
   }
