@@ -1,0 +1,18 @@
+<h2 align="center">Appointment Information</h2>
+</br>
+
+<div class="container-fluid" align="center">
+    
+    <%= @appointment.first_name %> <%= @appointment.last_name %> </br>
+    Email: <%= @appointment.owner_email%> </br>
+    Phone: <%= @appointment.phone%> </br>
+    Date: <%= "#{Date.strptime(@appointment.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %> </br>
+    Time: <%= @appointment.time%> </br>
+    Vehicle: <%= @appointment.year %> <%= @appointment.make %> <%= @appointment.model %> </br>
+    VIN: <%= @appointment.VIN %> </br>
+    Reason: <%= @appointment.reason %> </br>
+    
+    </br> </br>
+    <%= link_to 'Edit', edit_appointment_path(@appointment) %> </br>
+    <%= link_to 'Return', admin_path %> </br>
+</div>

@@ -20,7 +20,9 @@
         <h5 class="card-header">Current Appointments</h5>
         <div class="card-body">
           <%@appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt |%>
-            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> <%= link_to 'Edit', edit_appointment_path(appt) %>
+            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> 
+            <%= link_to 'Edit', edit_appointment_path(appt) %> 
+            <%= link_to 'Show', appointment_path(appt) %>
             </br>
           <%end%>
         </div>
@@ -34,7 +36,8 @@
         <h5 class="card-header">Previous Appointments</h5>
         <div class="card-body">
           <%@appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt |%>
-            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%>
+            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> 
+            <%= link_to 'Show', appointment_path(appt) %>
             </br>
           <%end%>
         </div>
