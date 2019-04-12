@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
   if (document.location.pathname == "/schedule") {
-    $('select').on('change', function() {
+    $('select#savedCars').on('change', function() {
       if ($('select#savedCars option:selected').text() != "Use New Car") {
         var year_make_model = $('select#savedCars option:selected').text().split(" ");
           $('input#appointment_year').val(year_make_model[0]);
