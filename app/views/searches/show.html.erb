@@ -1,0 +1,25 @@
+<h2 align="center">Search Results</h2>
+
+
+<div class="container-fluid">
+    <%= link_to 'Return', new_search_path %> </br> </br>
+    <% if @search.search_appointments.empty? %>
+        <p> No Appointments Fit This Search</p>
+        
+    <% else %>
+        <% @search.search_appointments.each do |a| %>
+        
+        <%= a.first_name %> <%= a.last_name %> </br>
+        Email: <%= a.owner_email%> </br>
+        Phone: <%= a.phone%> </br>
+        Date: <%= "#{Date.strptime(a.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %> </br>
+        Time: <%= a.time%> </br>
+        Vehicle: <%= a.year %> <%= a.make %> <%= a.model %> </br>
+        VIN: <%= a.VIN %> </br>
+        Reason: <%= a.reason %> </br>
+        
+        </br> </br>
+        <% end %>
+    <% end %>
+    
+</div>
