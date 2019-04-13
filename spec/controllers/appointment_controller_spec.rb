@@ -186,4 +186,45 @@ RSpec.describe AppointmentsController, type: :controller do
       end.to change(Appointment, :count).by(-1)
     end
   end
+
+  describe "GET show" do
+    it "assigns the requested appointment as @appointment" do
+      appt = Appointment.new(
+          :VIN => "12345678901234567",
+          :owner_email => "rspec@gmail.com",
+          :date => "2019-04-04",
+          :time => "Evening",
+          :reason => "purely testing"
+        )
+      appt.save!
+      params = {
+        :id => appt.to_param
+      }
+      get :show, params: params
+      expect(assigns(:appointment)).to eq appt
+    end
+  end
+
+  describe "POST update" do
+    it "correctly changes the appointment" do
+      appt = Appointment.new(
+          :VIN => "12345678901234567",
+          :owner_email => "rspec@gmail.com",
+          :date => "2019-04-04",
+          :time => "Evening",
+          :reason => "purely testing"
+        )
+      appt.save!
+      expect(appt.time).to eq "Evening"
+      params = {
+        :id => appt.to_param,
+        appointment: {
+          time: "Morning"
+        }
+      }
+      post :update, params: params
+      updated = Appointment.first
+      expect(updated.time).to eq "Morning"
+    end
+  end
 end

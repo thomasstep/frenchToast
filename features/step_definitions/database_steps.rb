@@ -18,7 +18,11 @@ Given /^the following appointments exist:$/ do | table |
         :owner_email => appt["email"],
         :date => appt["date"],
         :time => appt["time"],
-        :reason => appt["reason"]
+        :reason => appt["reason"],
+        :phone => appt["phone"],
+        :make => appt["make"],
+        :model => appt["model"],
+        :year => appt["year"]
       ).save!
   end
 end
