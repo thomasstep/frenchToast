@@ -8,7 +8,7 @@
         <div class="form-group">
           <%= s.label :VIN %> </br>
           <%= s.text_field :VIN, {
-                pattern: "[A-Za-z0-9]{0,17	}$",
+                pattern: "[A-Za-z0-9]{0,17}$",
                 title: "Alphanumeric only, up to 17 characters"
           } %>
         </div>
