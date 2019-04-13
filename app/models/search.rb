@@ -10,6 +10,6 @@ class Search < ApplicationRecord
             appointments = appointments.where("time LIKE ?", self.time) if self.time.present?
         end
         
-        return appointments
+        return appointments.order({:date => :asc})
     end
 end
