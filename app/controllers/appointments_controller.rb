@@ -40,7 +40,7 @@ class AppointmentsController < ApplicationController
 
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      # UserMailer.welcome_email(params[:appointment][:owner_email], params[:appointment][:date], params[:appointment][:time]).deliver_now
+      UserMailer.welcome_email(params[:appointment][:owner_email], params[:appointment][:date], params[:appointment][:time]).deliver_now
       redirect_to '/my_profile'
     else
       render :new
