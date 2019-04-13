@@ -19,8 +19,8 @@ Feature: Control an admin account with appointment modification privileges
   Then I should see "Admin"
   When I follow "Admin"
   Then I should see "Appointment for test1@gmail.com on March 11, 2010 in the Morning"
-  And I should see "Appointment for test1@gmail.com on April 25, 2030 in the Evening Edit"
-  And I should see "Appointment for test2@gmail.com on May 16, 2040 in the Afternoon Edit"
+  And I should see "Appointment for test1@gmail.com on April 25, 2030 in the Evening"
+  And I should see "Appointment for test2@gmail.com on May 16, 2040 in the Afternoon"
 
   Scenario: non-Admin user tries to see admin 
   Given "test1@gmail.com" is logged in using password "test1234"
