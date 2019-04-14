@@ -5,9 +5,11 @@ class AppointmentsController < ApplicationController
     @user_last_name = ""
     @user_email = ""
     @user_phone = ""
+    @user_readonly = false
     if user_signed_in?
       if !current_user.email.nil?
         @user_email = current_user.email
+        @user_readonly = true
       end
       if !current_user.first_name.nil?
         @user_first_name = current_user.first_name
