@@ -1,25 +1,71 @@
-<h2 align="center">Search Results</h2>
-
-
 <div class="container-fluid">
-    <%= link_to 'Return', new_search_path %> </br> </br>
-    <% if @search.search_appointments.empty? %>
-        <p> No Appointments Fit This Search</p>
-        
-    <% else %>
-        <% @search.search_appointments.each do |a| %>
-        
-        <%= a.first_name %> <%= a.last_name %> </br>
-        Email: <%= a.owner_email%> </br>
-        Phone: <%= a.phone%> </br>
-        Date: <%= "#{Date.strptime(a.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %> </br>
-        Time: <%= a.time%> </br>
-        Vehicle: <%= a.year %> <%= a.make %> <%= a.model %> </br>
-        VIN: <%= a.VIN %> </br>
-        Reason: <%= a.reason %> </br>
-        
-        </br> </br>
-        <% end %>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
+      <h1>Search Results</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+       <%= link_to 'Return', admin_path, class: "btn btn-danger" %>
+    </div>
+  </div>
+  <br>
+  <% if @search.search_appointments.empty? %>
+    <div class="row">
+      <div class="col-md-4 offset-md-4 text-center">
+         <p>No Appointments Fit This Search</p>
+      </div>
+    </div>
+  <% else %>
+    <% @search.search_appointments.each do |a| %>
+      <div class="row mb-5">
+        <div class="col-md-4 offset-md-4">
+          <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-dark text-light">
+                Customer Name: <%= a.first_name %> <%= a.last_name %>
+              </li>
+              <li class="list-group-item">
+                Email: <%= a.owner_email%>
+              </li>
+              <li class="list-group-item">
+                Phone: <%= a.phone%>
+              </li>
+              <li class="list-group-item">
+                Date: <%= "#{Date.strptime(a.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %>
+              </li>
+              <li class="list-group-item">
+                Time: <%= a.time%>
+              </li>
+              <li class="list-group-item">
+                Vehicle: <%= a.year %> <%= a.make %> <%= a.model %>
+              </li>
+              <li class="list-group-item">
+                VIN: <%= a.VIN %>
+              </li>
+              <li class="list-group-item">
+                Reason: <%= a.reason %>
+              </li>
+              <% if not a.parts_needed.nil? %>
+                <li class="list-group-item">
+                  Parts Needed: <%= a.parts_needed %>
+                </li>
+              <% end %>
+              <% if not a.hours_needed.nil? %>
+                <li class="list-group-item">
+                  Hours Needed: <%= a.hours_needed %>
+                </li>
+              <% end %>
+              <% if not a.cost.nil? %>
+                <li class="list-group-item">
+                  Cost: <%= a.cost %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     <% end %>
+  <% end %>
     
 </div>
