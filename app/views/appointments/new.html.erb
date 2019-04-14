@@ -61,7 +61,7 @@
               {
                 class: "form-control",
                 required: true,
-                pattern: "\A(\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4})",
+                pattern: "[(]?[?0-9]{3}[)]?[-.]?[0-9]{3}[-.]?[0-9]{4}",
                 title: "Phone number must be 10 digit numeric, (XXX)-XXX-XXX, XXXXXXXXXX, XXX-XXX-XXXX, XXX.XXX.XXXX",
                 value: @user_phone
               }
