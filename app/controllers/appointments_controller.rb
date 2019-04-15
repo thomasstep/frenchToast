@@ -1,26 +1,24 @@
 class AppointmentsController < ApplicationController
 
+  
   def load_forms
-    @user_first_name = ""
-    @user_last_name = ""
-    @user_email = ""
-    @user_phone = ""
-    @user_readonly = false
     if user_signed_in?
-      if !current_user.email.nil?
+      if !current_user.email.blank?
         @user_email = current_user.email
-        @user_readonly = true
       end
-      if !current_user.first_name.nil?
+      
+      if !current_user.first_name.blank?
         @user_first_name = current_user.first_name
       end
-      if !current_user.last_name.nil?
+      
+      if !current_user.last_name.blank?
         @user_last_name = current_user.last_name
       end
-      if !current_user.phone.nil?
+      
+      if !current_user.phone.blank?
         @user_phone = current_user.phone
       end
-
+      
       @show_saved_cars = true
       @cars = [["Use New Car", "0"]]
       saved_cars = Car.where(email: current_user.email)
