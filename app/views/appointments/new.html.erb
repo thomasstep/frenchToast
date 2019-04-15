@@ -7,7 +7,7 @@
   <%= form_for @appointment do |f| %>
     <% if @appointment.errors.any? %>
   <div id="error_explanation">
-  <div class="col-md-3 offset-md-2">
+  <div class="col-md-4 offset-md-4">
     <font color="red"><center>Error(s) creating appointments:
             
     <ul>
@@ -61,7 +61,7 @@
               {
                 class: "form-control",
                 required: true,
-                pattern: "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                pattern: "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$",
                 title: "xxxxxx@xxx.xxx",
                 value: @user_email,
                 readonly: @user_email
@@ -80,7 +80,7 @@
               {
                 class: "form-control",
                 required: true,
-                pattern: "[(]?[?0-9]{3}[)]?[-.]?[0-9]{3}[-.]?[0-9]{4}",
+                pattern: "[(]?[?0-9]{3}[)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}",
                 title: "Phone number must be 10 digit numeric, (XXX)-XXX-XXX, XXXXXXXXXX, XXX-XXX-XXXX, XXX.XXX.XXXX",
                 value: @user_phone,
                 readonly: @user_phone
@@ -95,13 +95,12 @@
         <div class="col-md-4 offset-md-4">
           <div class="form-group">
             <label for="savedCars">Saved Cars</label>
-            <%= select_tag("Saved Cars", options_for_select(@cars, 0), class:"form-control", id:"savedCars", name:"savedCars") %>
-            <smaxll class="form-text text-muted">Use a car saved to your profile or create a new car.</small>
+            <%= select_tag("Saved Cars", options_for_select(@cars, :selected => params[:picked]), class:"form-control", id:"savedCars", name:"savedCars", onchange: @show_saved_cars = false) %>
+            <small class="form-text text-muted">Use a car saved to your profile or create a new car.</small>
           </div>
         </div>
       </div>
     <% end %>
-
     <div class="row">
       <div class="col-md-3 offset-md-2">
         <div class="form-group">
@@ -111,7 +110,7 @@
                 class: "form-control",
                 required: true,
                 pattern: "^(20[0-2][0-9])|(19[0-9][0-9])$",
-                title: "1900-Current Year"
+                title: "1900-Current Year",
               }
           %>
         </div>
@@ -190,9 +189,7 @@
         <div class="form-group">
           <%= f.label :reason, "Reason For Scheduling" %>
           <%= f.text_area :reason,
-                class: "form-control",
-                pattern: "[A-Z]",
-                title: "no"
+                class: "form-control"
           %>
           <small id="reason" class="form-text text-muted">Please describe the problems you are having with your vehicle.</small>
         </div>
