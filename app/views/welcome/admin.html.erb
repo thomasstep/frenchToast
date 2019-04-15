@@ -24,7 +24,7 @@
       <div class="card">
         <h5 class="card-header">Current Appointments</h5>
         <ul class="list-group list-group-flush">
-          <% @appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt | %>
+          <% @current_appointments.each do | appt | %>
             <li class="list-group-item">
               <div class="row">
                 <div class="col-md-9 admin-center-text">
@@ -53,7 +53,7 @@
       <div class="card">
         <h5 class="card-header">Previous Appointments</h5>
         <ul class="list-group list-group-flush">
-          <% @appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt | %>
+          <% @previous_appointments.each do | appt | %>
             <li class="list-group-item">
               <div class="row">
                 <div class="col-md-10 admin-center-text">
