@@ -27,6 +27,8 @@ class WelcomeController < ApplicationController
       redirect_to "/not_admin"
     else
       @appointments = Appointment.all
+      @current_appointments = @appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current)
+      @previous_appointments = @appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current)
     end
   end
 
