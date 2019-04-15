@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
 
-  def new
+  def load_forms
     @user_first_name = ""
     @user_last_name = ""
     @user_email = ""
@@ -28,10 +28,15 @@ class AppointmentsController < ApplicationController
         @cars.push(["#{car.year} #{car.make} #{car.model}", car.VIN])
       end
     end
+  end
+  
+  def new
+    load_forms
     @appointment = Appointment.new
   end
 
   def create
+  
     if params[:appointment][:time] == "1"
       params[:appointment][:time] = "Morning"
     elsif params[:appointment][:time] == "2"
@@ -45,6 +50,7 @@ class AppointmentsController < ApplicationController
       # UserMailer.welcome_email(params[:appointment][:owner_email], params[:appointment][:date], params[:appointment][:time]).deliver_now
       redirect_to '/my_profile'
     else
+      load_forms
       render :new
     end
   end
