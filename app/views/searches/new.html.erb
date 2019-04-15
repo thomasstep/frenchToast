@@ -1,8 +1,10 @@
-<h2 align="center">Appointments Lookup</h2>
-
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
+      <h1>Appointments Lookup</h1>
+    </div>
+  </div>
   <%= form_for @search do |s| %>
-  
     <div class="row">
       <div class="col-md-2 offset-md-3">
         <div class="form-group">
@@ -28,28 +30,33 @@
     <div class="row">
         <div class="col-md-2 offset-md-3">
           <div class="form-group">
-              <%= s.label :after_date%>
-              <%= s.date_field :after_date %>
+              <%= s.label :after_date, "After Date" %>
+              <%= s.date_field :after_date, { class: "form-control" } %>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-              <%= s.label :before_date%>
-              <%= s.date_field :before_date %>
+              <%= s.label :before_date, "Before Date" %>
+              <%= s.date_field :before_date, { class: "form-control" } %>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="form-group">
-              <%= s.label :time %>
-              <%= s.select :time, ["Any", "Morning", "Afternoon", "Evening"], {}, class: "form-control"%>
+              <%= s.label :time, "Time" %>
+              <%= s.select :time, options_for_select(["Any", "Morning", "Afternoon", "Evening"]), {}, class: "form-control" %>
           </div>
         </div>
     </div>
-    
     <div class="row">
       <div class="col-md-4 offset-md-4 text-center">
-         <%= s.submit "Search", class:"btn btn-primary"%>
+         <%= s.submit "Search", class:"btn btn-danger"%>
       </div>
     </div>
   <% end %>
+  <br>
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+       <%= link_to "Return", admin_path, class:"btn btn-secondary"%>
+    </div>
+  </div>
 </div>
