@@ -51,7 +51,9 @@
           <%= f.text_field :VIN,
               {
                 class: "form-control",
-                required: true
+                required: true,
+                pattern: "^[a-zA-Z0-9]{17}$",
+                title: "17 character alphanumeric"
               }
           %>
           <small id="vehicleVin" class="form-text text-muted">Vehicle identification number found on insurance card or driver side dash board.</small>
