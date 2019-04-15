@@ -1,46 +1,75 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 offset-md-2 text-center mb-3 mt-3">
+    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
       <h1>Administrator Page</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 offset-md-2 text-center">
-    <%= form_tag admin_path, :method => 'get' do %>
-      <%= date_field_tag :search, params[:search] %>
-      <%= submit_tag "Search Date" %>
-    <% end %>
-    <%= link_to "Advanced Search", new_search_path %>
+    <div class="col-md-4 offset-md-4 text-center">
+      <%= form_tag admin_path, :method => 'get' do %>
+        <div class="input-group">
+          <%= date_field_tag :search, params[:search], class: "form-control" %>
+          <div class="input-group-append">
+            <%= submit_tag "Search Date", class: "btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    <br>
+    <%= link_to "Advanced Search", new_search_path, { :class => "btn btn-secondary mb-5" } %>
     </div>
   </div>
-  </br>
+  <br>
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <h5 class="card-header">Current Appointments</h5>
-        <div class="card-body">
-          <%@appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt |%>
-            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> 
-            <%= link_to 'Edit', edit_appointment_path(appt) %> 
-            <%= link_to 'Show', appointment_path(appt) %>
-            </br>
+        <ul class="list-group list-group-flush">
+          <% @appointments.where("date LIKE ? AND date >= ?","%#{params[:search]}%", Date.current).each do | appt | %>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-9 admin-center-text">
+                  <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> 
+                </div>
+                <div class="col-md-3">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <%= link_to 'Show', appointment_path(appt), { :class => "btn btn-sm btn-secondary" } %>
+                    </div>
+                    <div class="col-md-6">
+                      <%= link_to 'Edit', edit_appointment_path(appt), { :class => "btn btn-sm btn-outline-secondary" } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
           <%end%>
-        </div>
+        </ul>
       </div>
     </div>
   </div>
-  </br></br>
+  <br><br>
   <div align="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <h5 class="card-header">Previous Appointments</h5>
-        <div class="card-body">
-          <%@appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt |%>
-            <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> 
-            <%= link_to 'Show', appointment_path(appt) %>
-            </br>
-          <%end%>
-        </div>
+        <ul class="list-group list-group-flush">
+          <% @appointments.where("date LIKE ? AND date < ?","%#{params[:search]}%", Date.current).each do | appt | %>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-10 admin-center-text">
+                  <%="Appointment for #{appt.owner_email} on #{Date.strptime(appt.date, "%Y-%m-%d").strftime("%B %-d, %Y")} in the #{appt.time}"%> 
+                </div>
+                <div class = "col-md-2">
+                  <div class="row">
+                    <div class="col-md-9 offset-md-3">
+                      <%= link_to 'Show', appointment_path(appt), { :class => "btn btn-sm btn-secondary" } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
@@ -48,6 +77,6 @@
 <br><br>
 <div align="center">
   <div class="col-md-6 text-center">
-    <a href="/account_settings" class="btn btn-primary btn-lg">Edit Account Settings</a>
+    <a href="/account_settings" class="btn btn-danger btn-lg">Edit Account Settings</a>
   </div>
 </div>

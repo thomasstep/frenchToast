@@ -1,18 +1,66 @@
-<h2 align="center">Appointment Information</h2>
-</br>
-
-<div class="container-fluid" align="center">
-    
-    <%= @appointment.first_name %> <%= @appointment.last_name %> </br>
-    Email: <%= @appointment.owner_email%> </br>
-    Phone: <%= @appointment.phone%> </br>
-    Date: <%= "#{Date.strptime(@appointment.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %> </br>
-    Time: <%= @appointment.time%> </br>
-    Vehicle: <%= @appointment.year %> <%= @appointment.make %> <%= @appointment.model %> </br>
-    VIN: <%= @appointment.VIN %> </br>
-    Reason: <%= @appointment.reason %> </br>
-    
-    </br> </br>
-    <%= link_to 'Edit', edit_appointment_path(@appointment) %> </br>
-    <%= link_to 'Return', admin_path %> </br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center mb-5 mt-5">
+      <h1>Appointment Information</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Customer Name: <%= @appointment.first_name %> <%= @appointment.last_name %>
+          </li>
+          <li class="list-group-item">
+            Email: <%= @appointment.owner_email%>
+          </li>
+          <li class="list-group-item">
+            Phone: <%= @appointment.phone%>
+          </li>
+          <li class="list-group-item">
+            Date: <%= "#{Date.strptime(@appointment.date, "%Y-%m-%d").strftime("%B %-d, %Y")}" %>
+          </li>
+          <li class="list-group-item">
+            Time: <%= @appointment.time%>
+          </li>
+          <li class="list-group-item">
+            Vehicle: <%= @appointment.year %> <%= @appointment.make %> <%= @appointment.model %>
+          </li>
+          <li class="list-group-item">
+            VIN: <%= @appointment.VIN %>
+          </li>
+          <li class="list-group-item">
+            Reason: <%= @appointment.reason %>
+          </li>
+          <% if not @appointment.parts_needed.nil? %>
+            <li class="list-group-item">
+              Parts Needed: <%= @appointment.parts_needed %>
+            </li>
+          <% end %>
+          <% if not @appointment.hours_needed.nil? %>
+            <li class="list-group-item">
+              Hours Needed: <%= @appointment.hours_needed %>
+            </li>
+          <% end %>
+          <% if not @appointment.cost.nil? %>
+            <li class="list-group-item">
+              Cost: <%= @appointment.cost %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+       <%= link_to 'Edit', edit_appointment_path(@appointment), class: "btn btn-danger" %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+       <%= link_to 'Return', admin_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
 </div>
