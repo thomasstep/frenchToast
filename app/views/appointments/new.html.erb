@@ -9,7 +9,7 @@
   <div id="error_explanation">
   <div class="col-md-4 offset-md-4">
     <font color="red"><center>Error(s) creating appointments:
-            
+
     <ul>
     <% @appointment.errors.full_messages.each do |msg| %>
       * <%= msg %></br>
@@ -66,10 +66,10 @@
                 value: @user_email,
                 readonly: @user_email
               }
-              
+
           %>
           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-          
+
         </div>
       </div>
 
@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    
+
     <% if @show_saved_cars.present? %>
       <div class="row">
         <div class="col-md-4 offset-md-4">
@@ -165,9 +165,11 @@
         <div class="form-group">
           <%= f.label :date, "Desired Date" %>
           <%= f.date_field :date,
-              class: "form-control",
-              required: true
-              value: @current_time
+              {
+                class: "form-control",
+                value: @current_time,
+                required: true
+              }
           %>
         </div>
       </div>
@@ -179,7 +181,7 @@
               options_for_select(["Morning", "Afternoon", "Evening"]),
               {},
               class: "form-control"
-              
+
           %>
         </div>
       </div>
