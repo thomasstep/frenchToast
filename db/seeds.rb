@@ -10,8 +10,7 @@ User.new(
     :password => "test1234",
     :phone => "5555551230",
     :first_name => "John",
-    :last_name => "Test",
-    :admin => true
+    :last_name => "Test"
   ).save!
 
 User.new(
@@ -28,4 +27,10 @@ User.new(
     :phone => "5555551232",
     :first_name => "Jake",
     :last_name => "Test"
+  ).save!
+
+User.new(
+    :email => "thezcenterhouston@gmail.com",
+    :password => "4admin3password1",
+    :admin => true
   ).save!
