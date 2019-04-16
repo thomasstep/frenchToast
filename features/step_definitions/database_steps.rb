@@ -22,7 +22,9 @@ Given /^the following appointments exist:$/ do | table |
         :phone => appt["phone"],
         :make => appt["make"],
         :model => appt["model"],
-        :year => appt["year"]
+        :year => appt["year"],
+        :first_name => appt["first_name"],
+        :last_name => appt["last_name"]
       ).save!
   end
 end
