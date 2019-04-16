@@ -55,8 +55,8 @@
           <%= s.label :email %>
           <%= s.text_field :email, {
                 class: "form-control",
-                pattern: "[A-Za-z0-9!#$%&'*+-/=?^_`{|}~]{0,30}$",
-                title: "Alphanumeric with only valid email characters"
+                pattern: "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$",
+                title: "xxxxxx@xxx.xxx",
                 } %>
         </div>
       </div>
