@@ -138,7 +138,8 @@
         <div class="form-group">
           <%= f.label :date, "Desired Date" %>
           <%= f.date_field :date,
-              class: "form-control"
+              class: "form-control",
+              value: @current_time
           %>
         </div>
       </div>

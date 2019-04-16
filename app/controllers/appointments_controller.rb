@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def new
+    @current_time = Time.now.strftime('%Y-%m-%d')
     @user_first_name = ""
     @user_last_name = ""
     @user_email = ""
