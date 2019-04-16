@@ -16,7 +16,13 @@ RSpec.describe AppointmentsController, type: :controller do
           :owner_email => "rspec@gmail.com",
           :date => "2019-04-04",
           :time => "Evening",
-          :reason => "purely testing"
+          :reason => "purely testing",
+          :first_name => "John",
+          :last_name => "Test",
+          :phone => "5555551230",
+          :year => "1990",
+          :make => "Toyota",
+          :model => "Supra"
         )
       appt.save!
       # There should only be one appointment which is the one we just created
@@ -194,7 +200,13 @@ RSpec.describe AppointmentsController, type: :controller do
           :owner_email => "rspec@gmail.com",
           :date => "2019-04-04",
           :time => "Evening",
-          :reason => "purely testing"
+          :reason => "purely testing",
+          :first_name => "John",
+          :last_name => "Test",
+          :phone => "5555551230",
+          :year => "1990",
+          :make => "Toyota",
+          :model => "Supra"
         )
       appt.save!
       params = {
@@ -212,7 +224,13 @@ RSpec.describe AppointmentsController, type: :controller do
           :owner_email => "rspec@gmail.com",
           :date => "2019-04-04",
           :time => "Evening",
-          :reason => "purely testing"
+          :reason => "purely testing",
+          :first_name => "John",
+          :last_name => "Test",
+          :phone => "5555551230",
+          :year => "1990",
+          :make => "Toyota",
+          :model => "Supra"
         )
       appt.save!
       expect(appt.time).to eq "Evening"

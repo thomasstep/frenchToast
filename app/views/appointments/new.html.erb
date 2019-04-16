@@ -5,6 +5,19 @@
     </div>
   </div>
   <%= form_for @appointment do |f| %>
+    <% if @appointment.errors.any? %>
+  <div id="error_explanation">
+  <div class="col-md-4 offset-md-4">
+    <font color="red"><center>Error(s) creating appointments:
+
+    <ul>
+    <% @appointment.errors.full_messages.each do |msg| %>
+      * <%= msg %></br>
+    <% end %>
+    </ul></font>
+  </div>
+  </div>
+<% end %>
     <div class="row">
       <div class="col-md-3 offset-md-2">
         <div class="form-group">
@@ -12,9 +25,11 @@
           <%= f.text_field :first_name,
               {
                 class: "form-control",
+                required: true,
                 pattern: "^[a-zA-Z]{1,15}$",
                 title: "Name must be from 1 to 15 characters",
-                value: @user_first_name
+                value: @user_first_name,
+                readonly: @user_first_name
               }
           %>
         </div>
@@ -26,9 +41,11 @@
           <%= f.text_field :last_name,
               {
                 class: "form-control",
+                required: true,
                 pattern: "^[a-zA-Z]{1,15}$",
                 title: "Name must be from 1 to 15 characters",
-                value: @user_last_name
+                value: @user_last_name,
+                readonly: @user_last_name
               }
           %>
         </div>
@@ -39,15 +56,20 @@
       <div class="col-md-3 offset-md-2">
         <div class="form-group">
           <%= f.label :owner_email, "Email" %>
+
           <%= f.text_field :owner_email,
               {
                 class: "form-control",
-                pattern: "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                required: true,
+                pattern: "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$",
                 title: "xxxxxx@xxx.xxx",
-                value: @user_email
+                value: @user_email,
+                readonly: @user_email
               }
+
           %>
           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+
         </div>
       </div>
 
@@ -57,27 +79,28 @@
           <%= f.text_field :phone,
               {
                 class: "form-control",
-                pattern: "^(\+\d{1,2}\s?)\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$",
-                title: "Phone number must be 10 digit numeric, (XXX)-XXX-XXX, XXXXXXXXXX, XXX-XXX-XXXX",
-                value: @user_phone
+                required: true,
+                pattern: "[(]?[?0-9]{3}[)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}",
+                title: "Phone number must be 10 digit numeric, (XXX)-XXX-XXX, XXXXXXXXXX, XXX-XXX-XXXX, XXX.XXX.XXXX",
+                value: @user_phone,
+                readonly: @user_phone
               }
           %>
         </div>
       </div>
     </div>
-    
+
     <% if @show_saved_cars.present? %>
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <div class="form-group">
             <label for="savedCars">Saved Cars</label>
-            <%= select_tag("Saved Cars", options_for_select(@cars, 0), class:"form-control", id:"savedCars", name:"savedCars") %>
+            <%= select_tag("Saved Cars", options_for_select(@cars, :selected => params[:picked]), class:"form-control", id:"savedCars", name:"savedCars", onchange: @show_saved_cars = false) %>
             <small class="form-text text-muted">Use a car saved to your profile or create a new car.</small>
           </div>
         </div>
       </div>
     <% end %>
-
     <div class="row">
       <div class="col-md-3 offset-md-2">
         <div class="form-group">
@@ -85,6 +108,7 @@
           <%= f.text_field :year,
               {
                 class: "form-control",
+                required: true,
                 pattern: "^(20[0-2][0-9])|(19[0-9][0-9])$",
                 title: "1900-Current Year"
               }
@@ -98,6 +122,7 @@
           <%= f.text_field :make,
               {
                 class: "form-control",
+                required: true,
                 pattern: "^[a-zA-Z]{1,15}$",
                 title: "Make must be between 1 and 15 characters"
               }
@@ -111,6 +136,7 @@
           <%= f.text_field :model,
               {
                 class: "form-control",
+                required: true,
                 pattern: "^[a-zA-Z0-9-]{1,15}$",
                 title: "Model must be between 1 and 15 characters"
               }
@@ -126,6 +152,7 @@
           <%= f.text_field :VIN,
               {
                 class: "form-control",
+                required: true,
                 pattern: "^[a-zA-Z0-9]{17}$",
                 title: "17 character alphanumeric"
               }
@@ -138,8 +165,11 @@
         <div class="form-group">
           <%= f.label :date, "Desired Date" %>
           <%= f.date_field :date,
-              class: "form-control",
-              value: @current_time
+              {
+                class: "form-control",
+                value: @current_time,
+                required: true
+              }
           %>
         </div>
       </div>
@@ -151,6 +181,7 @@
               options_for_select(["Morning", "Afternoon", "Evening"]),
               {},
               class: "form-control"
+
           %>
         </div>
       </div>
@@ -176,4 +207,5 @@
       </div>
     </div>
   <% end %>
+
 </div>
