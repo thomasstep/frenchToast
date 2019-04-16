@@ -2,8 +2,8 @@ class Search < ApplicationRecord
     
     def search_appointments
         appointments = Appointment.all
-        appointments = appointments.where("first_name LIKE ?", "%#{first_name}%") if first_name.present?
-        appointments = appointments.where("last_name LIKE ?", "%#{last_name}%") if last_name.present?
+        appointments = appointments.where("first_name LIKE ?", "%#{first_name.capitalize}%") if first_name.present?
+        appointments = appointments.where("last_name LIKE ?", "%#{last_name.capitalize}%") if last_name.present?
         appointments = appointments.where("phone = ?", phone) if phone.present?
         appointments = appointments.where("\"VIN\" LIKE ?", "%#{self.VIN}%") if self.VIN.present?
         appointments = appointments.where("owner_email LIKE ?", "%#{email}%") if email.present?
