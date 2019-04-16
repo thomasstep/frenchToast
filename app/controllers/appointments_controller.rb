@@ -1,7 +1,12 @@
 class AppointmentsController < ApplicationController
-
   
   def load_forms
+  
+    @current_time = Time.now.strftime('%Y-%m-%d')
+    @user_first_name = ""
+    @user_last_name = ""
+    @user_email = ""
+    @user_phone = ""
     if user_signed_in?
       if !current_user.email.blank?
         @user_email = current_user.email
