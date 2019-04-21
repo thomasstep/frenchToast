@@ -55,7 +55,11 @@ class AppointmentsController < ApplicationController
   end
   
   def show
-    @appointment = Appointment.find(params[:id])
+    if(current_user.nil? or !current_user.admin?)
+      redirect_to "/not_admin"
+    else
+      @appointment = Appointment.find(params[:id])
+    end
   end
 
   def edit
