@@ -194,7 +194,7 @@ RSpec.describe AppointmentsController, type: :controller do
   end
 
   describe "GET show" do
-    it "assigns the requested appointment as @appointment" do
+    it "assigns the requested appointment as @appointment only if admin" do
       adminUser = User.new(
           :email => "test1@gmail.com",
           :password => "test1234",
@@ -224,6 +224,37 @@ RSpec.describe AppointmentsController, type: :controller do
       }
       get :show, params: params
       expect(assigns(:appointment)).to eq appt
+    end
+      it "should redirect if the account is not an admin" do
+        regUser = User.new(
+            :email => "email1@gmail.com",
+            :password => "test1234",
+            :phone => "5555551231",
+            :first_name => "Jane",
+            :last_name => "Test",
+            :admin => false
+          )
+        regUser.save!
+        sign_in regUser
+      appt = Appointment.new(
+          :VIN => "12345678901234567",
+          :owner_email => "rspec@gmail.com",
+          :date => "2019-04-04",
+          :time => "Evening",
+          :reason => "purely testing",
+          :first_name => "John",
+          :last_name => "Test",
+          :phone => "5555551230",
+          :year => "1990",
+          :make => "Toyota",
+          :model => "Supra"
+        )
+      appt.save!
+      params = {
+        :id => appt.to_param
+      }
+      get :show, params: params
+      expect(response).to redirect_to("/not_admin")
     end
   end
 
