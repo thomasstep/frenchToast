@@ -25,8 +25,8 @@ Feature: Control an admin account with appointment modification privileges
   Scenario: non-Admin user tries to see admin
   Given "test1@gmail.com" is logged in using password "test1234"
   And I am on the admin page
-  Then I should see "You are not an Admin"
+  Then I should see "You do not have access rights to this page"
 
   Scenario: User not logged in tries to see admin
   When I go to the admin page
-  Then I should see "You are not an Admin"
+  Then I should see "You do not have access rights to this page"

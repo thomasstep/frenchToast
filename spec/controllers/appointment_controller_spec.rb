@@ -195,6 +195,16 @@ RSpec.describe AppointmentsController, type: :controller do
 
   describe "GET show" do
     it "assigns the requested appointment as @appointment" do
+      adminUser = User.new(
+          :email => "test1@gmail.com",
+          :password => "test1234",
+          :phone => "5555551231",
+          :first_name => "Jane",
+          :last_name => "Test",
+          :admin => true
+        )
+      adminUser.save!
+      sign_in adminUser
       appt = Appointment.new(
           :VIN => "12345678901234567",
           :owner_email => "rspec@gmail.com",
