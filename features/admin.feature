@@ -30,3 +30,7 @@ Feature: Control an admin account with appointment modification privileges
   Scenario: User not logged in tries to see admin
   When I go to the admin page
   Then I should see "You do not have access rights to this page"
+
+  Scenario: User not logged in tries access new search page
+  When I go to the new search page
+  Then I should see "You do not have access rights to this page"
