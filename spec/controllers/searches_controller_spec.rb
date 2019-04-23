@@ -21,6 +21,16 @@ RSpec.describe SearchesController, type: :controller do
 
     describe "GET show" do
       it "assigns the requested search as @search" do
+        adminUser = User.new(
+            :email => "test1@gmail.com",
+            :password => "test1234",
+            :phone => "5555551231",
+            :first_name => "Jane",
+            :last_name => "Test",
+            :admin => true
+          )
+        adminUser.save!
+        sign_in adminUser
         search = Search.create!
         params = {
           :id => search.to_param
