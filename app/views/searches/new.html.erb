@@ -5,11 +5,46 @@
     </div>
   </div>
   <%= form_for @search do |s| %>
+  
+    <div class="row">
+        <div class="col-md-2 offset-md-3">
+          <div class="form-group">
+              <%= s.label :first_name, "First Name" %>
+              <%= s.text_field :first_name, {
+                    class: "form-control",
+                    pattern: "^[a-zA-Z]{1,15}$",
+                    title: "Name must be from 1 to 15 characters"
+              } %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+              <%= s.label :last_name, "Last Name" %>
+              <%= s.text_field :last_name,  {
+                    class: "form-control",
+                    pattern: "^[a-zA-Z]{1,15}$",
+                    title: "Name must be from 1 to 15 characters"
+              } %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+              <%= s.label :phone, "Phone" %>
+              <%= s.text_field :phone,  {
+                    class: "form-control",
+                    pattern: "[(]?[?0-9]{3}[)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}",
+                    title: "Phone number must be 10 digit numeric, (XXX)-XXX-XXX, XXXXXXXXXX, XXX-XXX-XXXX, XXX.XXX.XXXX"
+              } %>
+          </div>
+        </div>
+    </div>
+    
     <div class="row">
       <div class="col-md-2 offset-md-3">
         <div class="form-group">
           <%= s.label :VIN %> </br>
           <%= s.text_field :VIN, {
+                class: "form-control",
                 pattern: "[A-Za-z0-9]{0,17}$",
                 title: "Alphanumeric only, up to 17 characters"
           } %>
@@ -20,8 +55,8 @@
           <%= s.label :email %>
           <%= s.text_field :email, {
                 class: "form-control",
-                pattern: "[A-Za-z0-9!#$%&'*+-/=?^_`{|}~]{0,30}$",
-                title: "Alphanumeric with only valid email characters"
+                pattern: "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$",
+                title: "xxxxxx@xxx.xxx",
                 } %>
         </div>
       </div>

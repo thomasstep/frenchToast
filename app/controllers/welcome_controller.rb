@@ -12,7 +12,6 @@ class WelcomeController < ApplicationController
   def my_profile
     if current_user.nil?
       redirect_to "/sign_in"
-
     else
       @appointments = Appointment.
         where(owner_email: current_user.email).

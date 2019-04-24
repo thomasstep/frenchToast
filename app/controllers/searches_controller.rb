@@ -1,7 +1,11 @@
 class SearchesController < ApplicationController
     
     def new
-        @search = Search.new
+        if(current_user.nil? or !current_user.admin?)
+          redirect_to "/not_admin"
+        else
+            @search = Search.new
+        end
     end
     
     def create
@@ -10,7 +14,11 @@ class SearchesController < ApplicationController
     end
     
     def show
-        @search = Search.find(params[:id])
+        if(current_user.nil? or !current_user.admin?)
+          redirect_to "/not_admin"
+        else
+            @search = Search.find(params[:id])
+        end
     end
     
     def destroy
@@ -21,6 +29,6 @@ class SearchesController < ApplicationController
     end
     
     def search_params
-        params.require(:search).permit(:VIN, :email, :after_date, :before_date, :time)
+        params.require(:search).permit(:first_name, :last_name, :phone, :VIN, :email, :after_date, :before_date, :time)
     end
 end

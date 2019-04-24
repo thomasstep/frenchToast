@@ -16,6 +16,9 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^the new search\s?page$/
+      '/searches/new'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
